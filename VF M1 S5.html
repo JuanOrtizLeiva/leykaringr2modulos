@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)file:///C:/Users/jyjva/OneDrive/Escritorio/M1%20S5.html -->
+<html lang="es-CL"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Ley en Acción: Ejemplos y Análisis de Casos (Anónimos)</title>
+    <style>
+        /* --- Reset Básico y Variables --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            /* Paleta Base del Input */
+            --color-primary: #0A4A9D; /* Cobalto Oscuro Dinámico */
+            --color-primary-grad: #3B77C6; /* Variante Cobalto */
+            --color-accent1: #FB8C00; /* Naranja Vibrante */
+            --color-accent2: #6C757D; /* Gris Neutro */
+            --color-text: #212529; /* Negro Suave */
+            --color-background: #FFFFFF; /* Blanco */
+            --color-background-alt: #F1F3F5; /* Gris Claro */
+            --color-border: #dee2e6;
+
+            /* Esquema Acentuado (Opción 3) - Añadidos */
+            --color-feedback-success: #28a745; /* Verde para éxito */
+            --color-feedback-error: #dc3545; /* Rojo para error */
+            --color-accent-highlight: #20c997; /* Verde azulado para destacar */
+
+            /* Tipografía */
+            --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-size-base: 1rem; /* 16px por defecto */
+            --font-size-lg: 1.25rem;
+            --font-size-xl: 1.75rem;
+            --font-size-xxl: 2.25rem;
+            --line-height-base: 1.6;
+
+            /* Espaciado */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
+
+            /* Animaciones (Opción 1: Suaves) */
+            --transition-speed: 0.4s;
+            --transition-timing: ease-in-out;
+
+            /* Sombras y Bordes */
+            --box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --border-radius-sm: 0.25rem;
+            --border-radius-md: 0.5rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: var(--font-size-base);
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            line-height: var(--line-height-base);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            overflow-x: hidden; /* Prevenir scroll horizontal */
+        }
+
+        /* --- Estructura de Página: Módulos (Opción 2) --- */
+        .page-wrapper {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+
+        .content-module {
+            background-color: var(--color-background);
+            padding: var(--spacing-xl) var(--spacing-lg); /* Padding interno adecuado */
+            margin-bottom: var(--spacing-xxl); /* Separación amplia */
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow-sm);
+            overflow: hidden; /* Asegurar que el contenido no desborde */
+        }
+
+        .content-module--alt-bg {
+            background-color: var(--color-background-alt);
+        }
+
+        /* --- Layout: Grid Mixto (Opción 2) --- */
+        .grid-container {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+
+        @media (min-width: 768px) {
+            .grid-container--2-cols {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid-container--3-cols {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* --- Tipografía y Contenido General --- */
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--color-primary);
+        }
+
+        h1 { font-size: var(--font-size-xxl); }
+        h2 { font-size: var(--font-size-xl); margin-top: var(--spacing-xl); }
+        h3 { font-size: var(--font-size-lg); margin-top: var(--spacing-lg); }
+        h4 { font-size: var(--font-size-base) * 1.1; }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            overflow-wrap: break-word; /* Prevenir desbordamiento */
+        }
+
+        a {
+            color: var(--color-primary-grad);
+            text-decoration: none;
+            transition: color var(--transition-speed) var(--transition-timing);
+        }
+        a:hover, a:focus {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+        ul, ol {
+            margin-bottom: var(--spacing-md);
+            padding-left: 2em; /* Indentación correcta */
+        }
+        li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        strong { font-weight: 600; }
+        em { font-style: italic; }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: var(--color-border);
+            margin: var(--spacing-xl) 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- Utilidades --- */
+        .text-center { text-align: center; }
+        .text-primary { color: var(--color-primary); }
+        .text-accent { color: var(--color-accent1); }
+        .mb-0 { margin-bottom: 0 !important; }
+
+        /* --- Barra de Progreso --- */
+        #progress-bar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--color-background-alt);
+            z-index: 1000;
+        }
+        #progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: var(--color-primary);
+            transition: width 0.1s linear;
+        }
+
+        /* --- Botón Volver Arriba --- */
+        #back-to-top {
+            position: fixed;
+            bottom: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            line-height: 50px; /* Centra el icono */
+            text-align: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--transition-speed) var(--transition-timing), visibility var(--transition-speed) var(--transition-timing), background-color var(--transition-speed) var(--transition-timing);
+            z-index: 999;
+            box-shadow: var(--box-shadow-md);
+        }
+        #back-to-top:hover {
+            background-color: var(--color-primary-grad);
+        }
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* --- Iconografía (Opción 2: Sólidos - Inline SVG) --- */
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.125em; /* Alinear mejor con texto */
+            fill: currentColor; /* Heredar color */
+        }
+
+        /* --- Encabezado y Objetivos --- */
+        .page-header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-grad));
+            color: var(--color-background);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            margin-bottom: var(--spacing-xxl);
+            border-radius: var(--border-radius-md);
+        }
+        .page-header h1 {
+            color: var(--color-background);
+            margin-bottom: var(--spacing-sm);
+        }
+        .page-header p {
+            font-size: var(--font-size-lg);
+            opacity: 0.9;
+            margin-bottom: var(--spacing-md);
+        }
+        .objectives-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .objectives-list li {
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: start;
+        }
+        .objectives-list .icon {
+            color: var(--color-accent1);
+            margin-right: var(--spacing-sm);
+            flex-shrink: 0;
+            margin-top: 0.2em; /* Ajuste vertical */
+        }
+
+
+        /* === COMPONENTES INTERACTIVOS === */
+
+        /* --- 1. Texto Explicativo Largo (Mín. 400 palabras) --- */
+        .long-text-section {
+             padding: var(--spacing-lg); /* Padding interno adecuado */
+        }
+
+        /* --- 2. Bloques de Citas (Var. 2: Borde lateral y fondo sutil) --- */
+        .quote-block {
+            background-color: var(--color-background-alt);
+            border-left: 5px solid var(--color-accent1);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+        }
+        .quote-block blockquote {
+            margin: 0;
+            font-style: italic;
+            font-size: var(--font-size-lg);
+            color: var(--color-text);
+            position: relative;
+            padding-bottom: var(--spacing-md); /* Espacio antes de la fuente */
+            margin-bottom: var(--spacing-sm); /* Espacio entre cita y fuente */
+        }
+        .quote-block blockquote::before {
+            /* Opcional: Comillas decorativas sutiles */
+            /* content: '“';
+            font-size: 3em;
+            color: var(--color-accent1);
+            opacity: 0.3;
+            position: absolute;
+            top: -0.2em;
+            left: -0.3em; */
+        }
+        .quote-block footer {
+            font-size: var(--font-size-base);
+            color: var(--color-accent2);
+            font-style: normal;
+            text-align: right;
+        }
+        .quote-block footer::before {
+            content: "— ";
+        }
+
+        /* --- 3. Timeline Visual (Vertical) --- */
+        .timeline-vertical {
+            position: relative;
+            padding: var(--spacing-lg) 0; /* Padding interno */
+            list-style: none;
+            margin-left: var(--spacing-lg); /* Espacio para la línea */
+        }
+        .timeline-vertical::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15px; /* Centrar la línea con el punto */
+            bottom: 0;
+            width: 3px;
+            background-color: var(--color-primary-grad);
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-xl);
+            padding-left: 40px; /* Espacio para el contenido después del punto */
+        }
+        .timeline-item::before { /* El punto en la línea */
+            content: '';
+            position: absolute;
+            left: 10px; /* Alinear con la línea */
+            top: 5px; /* Ajustar verticalmente */
+            width: 15px;
+            height: 15px;
+            background-color: var(--color-background);
+            border: 3px solid var(--color-primary-grad);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item:last-child {
+             margin-bottom: 0;
+        }
+        .timeline-content {
+            background-color: var(--color-background);
+            padding: var(--spacing-md); /* Padding interno */
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow-sm);
+            border: 1px solid var(--color-border);
+        }
+        .timeline-time {
+            display: block;
+            font-size: 0.9em;
+            color: var(--color-accent2);
+            margin-bottom: var(--spacing-xs);
+        }
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-primary);
+        }
+
+        /* --- 4. Imagen con Zoom/Detalles (Var. 2: Puntos interactivos) --- */
+        .interactive-image-container {
+            position: relative;
+            max-width: 800px; /* Ajustar según necesidad */
+            margin: var(--spacing-lg) auto; /* Centrar */
+            padding: var(--spacing-md); /* Padding interno */
+            background-color: var(--color-background-alt); /* Fondo para destacar */
+            border-radius: var(--border-radius-md);
+        }
+        .interactive-image-container img {
+            display: block;
+            width: 100%;
+            border-radius: var(--border-radius-sm);
+        }
+        .hotspot {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--color-accent1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform var(--transition-speed) var(--transition-timing), background-color var(--transition-speed) var(--transition-timing);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.7);
+        }
+        .hotspot:hover {
+            transform: scale(1.2);
+            background-color: var(--color-primary);
+        }
+        .hotspot-tooltip {
+            position: absolute;
+            bottom: 120%; /* Posicionar encima del hotspot */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.9em;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--transition-speed) var(--transition-timing), visibility var(--transition-speed) var(--transition-timing);
+            z-index: 10;
+        }
+         .hotspot:hover .hotspot-tooltip,
+         .hotspot:focus .hotspot-tooltip { /* Añadir focus para accesibilidad */
+            opacity: 1;
+            visibility: visible;
+        }
+        /* Posicionamiento específico de hotspots (Ejemplos) */
+        .hotspot[data-spot="1"] { top: 20%; left: 30%; }
+        .hotspot[data-spot="2"] { top: 50%; left: 70%; }
+        .hotspot[data-spot="3"] { top: 80%; left: 40%; }
+
+        /* --- 5. Preguntas de Quiz (Feedback inmediato + Resumen) --- */
+        .quiz-container {
+            background-color: var(--color-background); /* Estilo Minimalista (Opción 1) */
+            border: 1px solid var(--color-border);
+            padding: var(--spacing-lg); /* Padding interno */
+            border-radius: var(--border-radius-md);
+        }
+        .quiz-question {
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .quiz-question:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .quiz-question p {
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+        }
+        .quiz-options label {
+            display: block;
+            background-color: var(--color-background-alt);
+            padding: var(--spacing-md); /* Padding interno */
+            margin-bottom: var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--color-border);
+            cursor: pointer;
+            transition: background-color var(--transition-speed) var(--transition-timing), border-color var(--transition-speed) var(--transition-timing);
+            position: relative; /* Para pseudo-elementos de feedback */
+        }
+        .quiz-options label:hover {
+            background-color: #e2e6ea;
+        }
+        .quiz-options input[type="radio"] {
+            margin-right: var(--spacing-sm);
+            opacity: 0; /* Ocultar radio original */
+            position: absolute;
+        }
+
+        /* Estilos de Feedback Inmediato */
+        .quiz-options label.correct {
+            background-color: #d4edda;
+            border-color: var(--color-feedback-success);
+            color: #155724;
+            cursor: not-allowed;
+        }
+        .quiz-options label.incorrect {
+            background-color: #f8d7da;
+            border-color: var(--color-feedback-error);
+            color: #721c24;
+            cursor: not-allowed;
+        }
+        .quiz-options label.disabled { /* Para opciones no seleccionadas después de responder */
+            opacity: 0.7;
+            cursor: not-allowed;
+            pointer-events: none; /* Asegurar que no se pueda interactuar */
+        }
+        .quiz-feedback {
+            font-size: 0.9em;
+            margin-top: var(--spacing-sm);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            display: none; /* Oculto hasta que se responda */
+        }
+        .quiz-feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+        .quiz-feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
+        /* Estilo Resumen Final */
+        #quiz-summary {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background-color: var(--color-primary-grad);
+            color: var(--color-background);
+            border-radius: var(--border-radius-md);
+            text-align: center;
+            display: none; /* Oculto hasta completar */
+        }
+        #quiz-summary h4 {
+            color: var(--color-background);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* --- 6. Acordeones Expandibles --- */
+        .accordion-item {
+            border: 1px solid var(--color-border);
+            margin-bottom: -1px; /* Solapar bordes */
+        }
+        .accordion-item:first-of-type {
+            border-top-left-radius: var(--border-radius-md);
+            border-top-right-radius: var(--border-radius-md);
+        }
+        .accordion-item:last-of-type {
+            border-bottom-left-radius: var(--border-radius-md);
+            border-bottom-right-radius: var(--border-radius-md);
+             margin-bottom: 0;
+        }
+        .accordion-button {
+            background-color: var(--color-background-alt);
+            color: var(--color-primary);
+            cursor: pointer;
+            padding: var(--spacing-md) var(--spacing-lg); /* Padding interno adecuado */
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: var(--font-size-lg);
+            transition: background-color var(--transition-speed) var(--transition-timing);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        .accordion-button:hover, .accordion-button.active {
+            background-color: #e2e6ea;
+        }
+        .accordion-button .icon { /* Icono +/- */
+            transition: transform var(--transition-speed) var(--transition-timing);
+            font-size: 0.8em;
+        }
+        .accordion-button.active .icon {
+             transform: rotate(45deg); /* Cambia a 'X' o similar */
+        }
+
+        .accordion-content {
+            background-color: var(--color-background);
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height var(--transition-speed) var(--transition-timing), padding var(--transition-speed) var(--transition-timing); /* Transición suave */
+            padding: 0 var(--spacing-lg); /* Padding horizontal */
+        }
+        .accordion-content-inner { /* Div interno para controlar padding vertical */
+             padding-top: var(--spacing-lg);
+             padding-bottom: var(--spacing-lg); /* ÉNFASIS EN PADDING INFERIOR */
+        }
+        .accordion-content p:last-child {
+            margin-bottom: 0; /* Evitar doble margen inferior */
+        }
+
+        /* --- 7. Contadores Animados --- */
+        .counters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-lg) 0; /* Padding vertical */
+        }
+        .counter-item {
+            text-align: center;
+            padding: var(--spacing-md); /* Padding interno */
+            min-width: 150px; /* Asegurar espacio */
+        }
+        .counter-number {
+            font-size: var(--font-size-xxl);
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            min-height: 1.2em; /* Evitar saltos durante la carga */
+        }
+        .counter-label {
+            font-size: var(--font-size-base);
+            color: var(--color-accent2);
+        }
+
+        /* --- 8. Gráfico de Barras (Opción 1) --- */
+        .chart-container {
+            background-color: var(--color-background-alt);
+            padding: var(--spacing-lg); /* Padding interno */
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow-sm);
+            margin-bottom: var(--spacing-xl);
+        }
+        .bar-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end; /* Barras crecen hacia arriba */
+            height: 250px; /* ALTURA EXPLÍCITA NECESARIA para barras porcentuales */
+            border-left: 2px solid var(--color-accent2);
+            border-bottom: 2px solid var(--color-accent2);
+            padding: var(--spacing-md); /* Espacio interno */
+            position: relative;
+        }
+        .chart-bar {
+            background-color: var(--color-primary);
+            width: 12%; /* Ancho de la barra */
+            margin: 0 2%; /* Espacio entre barras */
+            position: relative; /* Para etiquetas */
+            transition: height var(--transition-speed) var(--transition-timing); /* Animación suave si se añade */
+            border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+        }
+        .chart-bar:hover {
+            background-color: var(--color-primary-grad);
+        }
+        .chart-bar span { /* Valor encima de la barra */
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        .chart-label { /* Etiqueta debajo de la barra */
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85em;
+            color: var(--color-accent2);
+            white-space: nowrap;
+        }
+        /* Ejemplo de altura de barra (se aplicaría con JS o inline style) */
+        /* .chart-bar[data-value="75"] { height: 75%; } */
+
+        /* --- 9. Pestañas Interactivas (Var. 1: Borde inferior activo) --- */
+        .tabs-container {
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-md);
+            overflow: hidden; /* Contener bordes */
+            background-color: var(--color-background);
+            padding: var(--spacing-lg); /* Padding interno general */
+        }
+        .tab-buttons {
+            display: flex;
+            border-bottom: 2px solid var(--color-border);
+            margin-bottom: var(--spacing-lg); /* Separar de contenido */
+        }
+        .tab-button {
+            padding: var(--spacing-md) var(--spacing-lg); /* Padding interno */
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            border-bottom: 3px solid transparent; /* Espacio para borde activo */
+            margin-bottom: -2px; /* Solapar con borde contenedor */
+            font-size: var(--font-size-base);
+            color: var(--color-accent2);
+            transition: color var(--transition-speed) var(--transition-timing), border-color var(--transition-speed) var(--transition-timing);
+        }
+        .tab-button:hover {
+            color: var(--color-primary);
+        }
+        .tab-button.active {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+            font-weight: 600;
+        }
+        .tab-content {
+            display: none; /* Ocultar por defecto */
+            padding: var(--spacing-md) 0 0 0; /* Padding superior */
+        }
+        .tab-content.active {
+            display: block; /* Mostrar contenido activo */
+            animation: fadeIn var(--transition-speed) var(--transition-timing);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- 10. Callouts / Bloques Destacados (Var. 1: Icono y borde lateral) --- */
+        .callout {
+            padding: var(--spacing-lg); /* Padding interno */
+            margin-bottom: var(--spacing-lg);
+            border-left: 5px solid var(--color-accent-highlight); /* Borde lateral */
+            background-color: #e0f7fa; /* Fondo sutil */
+            border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+            display: flex;
+            align-items: flex-start; /* Alinear icono y texto */
+        }
+        .callout .icon {
+            font-size: 1.5em;
+            color: var(--color-accent-highlight);
+            margin-right: var(--spacing-md);
+            flex-shrink: 0; /* Evitar que el icono se encoja */
+            margin-top: 0.1em; /* Ajuste vertical */
+        }
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* === ACTIVIDADES DE APRENDIZAJE === */
+
+        /* --- 1. Estudio de Caso (Estilo 2: Destacado) --- */
+        .activity-study-case {
+            background-color: var(--color-primary-grad);
+            color: var(--color-background);
+            padding: var(--spacing-xl); /* Padding interno amplio */
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow-md);
+            margin-bottom: var(--spacing-xxl);
+        }
+        .activity-study-case h3 {
+            color: var(--color-background);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            padding-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+        }
+        .activity-study-case h3 .icon {
+             margin-right: var(--spacing-sm);
+             font-size: 1.2em;
+        }
+        .activity-study-case p, .activity-study-case ul {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .activity-study-case strong {
+            color: var(--color-background);
+        }
+        .activity-study-case .discussion-points li::marker {
+             color: var(--color-accent1); /* Destacar viñetas */
+        }
+
+        /* --- 2. Quiz (Ya estilizado - Estilo 1: Minimalista) --- */
+        /* Ver .quiz-container */
+
+        /* --- 3. Reflexión Guiada (Estilo 3: Marco) --- */
+        .activity-reflection {
+            border: 3px dashed var(--color-accent1); /* Marco distintivo */
+            padding: var(--spacing-lg); /* Padding interno */
+            margin-bottom: var(--spacing-xxl);
+            border-radius: var(--border-radius-md);
+            background-color: var(--color-background); /* Fondo claro */
+        }
+         .activity-reflection h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+        }
+        .activity-reflection h3 .icon {
+             margin-right: var(--spacing-sm);
+             font-size: 1.2em;
+             color: var(--color-accent1);
+        }
+        .activity-reflection label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        .activity-reflection textarea {
+            width: 100%;
+            min-height: 150px; /* Tamaño apropiado */
+            padding: var(--spacing-md); /* Padding interno */
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-sm);
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            resize: vertical; /* Permitir redimensionar verticalmente */
+            margin-bottom: var(--spacing-md);
+        }
+        .activity-reflection textarea:focus {
+            outline: none;
+            border-color: var(--color-primary-grad);
+            box-shadow: 0 0 0 2px rgba(59, 119, 198, 0.3);
+        }
+        .activity-reflection small {
+            display: block;
+            color: var(--color-accent2);
+            font-size: 0.9em;
+        }
+
+        /* === MULTIMEDIA Y DECORACIÓN === */
+
+        /* --- Imágenes Decorativas --- */
+        .decorative-image {
+             margin: var(--spacing-xl) auto; /* Centrar y espaciar */
+             max-width: 800px;
+             overflow: hidden; /* Para clip-path y bordes */
+        }
+        /* Var 1: Rectangular estándar, bordes redondeados */
+        .img-style-1 {
+             border-radius: var(--border-radius-md);
+             box-shadow: var(--box-shadow-sm);
+        }
+        /* Var 2: Recorte en forma sutil (Ej: esquina cortada) */
+        .img-style-2 {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+             border-radius: var(--border-radius-sm); /* Puede ayudar con anti-aliasing */
+        }
+        /* Var 3: Efecto overlay al hover */
+        .img-style-3-container {
+            position: relative;
+            border-radius: var(--border-radius-md);
+             overflow: hidden; /* Importante para el overlay */
+        }
+        .img-style-3-container::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: var(--color-primary);
+            opacity: 0;
+            transition: opacity var(--transition-speed) var(--transition-timing);
+        }
+        .img-style-3-container:hover::after {
+            opacity: 0.3; /* Opacidad sutil del color primario */
+        }
+         .img-style-3-container img {
+             display: block; /* Asegura que no haya espacio debajo */
+         }
+
+
+         /* --- Responsive Design --- */
+        @media (max-width: 767px) {
+            :root {
+                --font-size-lg: 1.15rem;
+                --font-size-xl: 1.5rem;
+                --font-size-xxl: 1.8rem;
+                --spacing-lg: 1rem;
+                --spacing-xl: 1.5rem;
+                --spacing-xxl: 2rem;
+            }
+            .page-wrapper {
+                padding: var(--spacing-md);
+            }
+            .content-module {
+                 padding: var(--spacing-lg) var(--spacing-md);
+            }
+            .page-header {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+            .grid-container--2-cols, .grid-container--3-cols {
+                grid-template-columns: 1fr; /* Apilar columnas en móvil */
+            }
+            .counters-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .bar-chart {
+                height: 200px; /* Ajustar altura para móvil */
+            }
+            .chart-bar {
+                width: 15%;
+            }
+            .tab-buttons {
+                flex-wrap: wrap; /* Permitir que los botones pasen a la siguiente línea si no caben */
+            }
+            .timeline-vertical {
+                margin-left: var(--spacing-md);
+            }
+            .timeline-item {
+                padding-left: 30px;
+            }
+             .timeline-item::before {
+                 left: 5px;
+                 width: 12px;
+                 height: 12px;
+             }
+             .hotspot {
+                 width: 20px;
+                 height: 20px;
+                 font-size: 0.8em;
+             }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="progress-bar-container">
+        <div id="progress-bar" style="width: 100.006%;"></div>
+    </div>
+
+    <button id="back-to-top" title="Volver arriba" class="show">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path></svg>
+    </button>
+
+    <div class="page-wrapper">
+
+        <header class="page-header">
+            <h1>La Ley en Acción: Ejemplos y Análisis de Casos (Anónimos)</h1>
+            <p>Explorando cómo la Ley Karin (N° 21.643) se aplica en situaciones laborales cotidianas en Chile.</p>
+            <ul class="objectives-list">
+                <li>
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path></svg>
+                    Analizar situaciones laborales hipotéticas (basadas en la realidad, pero anonimizadas) que ilustren la aplicación práctica de la Ley Karin.
+                </li>
+                <li>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c28.5 28.5 28.5 74.8 0 103.3L327.3 362c-28.5 28.5-74.8 28.5-103.3 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C60.2 220.5 53.7 299.3 103.7 349.3c56.5 56.5 148 56.5 204.5 0L480.2 218.6c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c28.5 28.5 28.5 74.8 0 103.3L327.3 362c-28.5 28.5-74.8 28.5-103.3 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C60.2 220.5 53.7 299.3 103.7 349.3c56.5 56.5 148 56.5 204.5 0L480.2 218.6l99.6 49.1z"></path></svg>
+                    Conectar los conceptos teóricos con escenarios del día a día laboral.
+                </li>
+            </ul>
+        </header>
+
+        <section class="content-module">
+            <h2>Del Papel a la Práctica: Comprendiendo la Ley Karin en Contexto</h2>
+            <div class="long-text-section">
+                <p>La Ley N° 21.643, conocida como Ley Karin, representa un avance significativo en la legislación laboral chilena, estableciendo un marco robusto para la prevención, investigación y sanción del acoso laboral, sexual y la violencia en el trabajo. Promulgada con el objetivo de erradicar estas conductas y fomentar ambientes laborales seguros, respetuosos y dignos, su correcta implementación es crucial para todas las empresas y trabajadores en Chile. Entender la ley no es solo memorizar artículos; es comprender su espíritu y cómo se traduce en acciones concretas en el día a día.</p>
+                <p>Esta sección se enfoca precisamente en ese puente entre la teoría legal y la realidad laboral. A menudo, las leyes pueden parecer abstractas o distantes hasta que nos enfrentamos a situaciones donde su aplicación es necesaria. Aquí, exploraremos escenarios hipotéticos, cuidadosamente anonimizados pero inspirados en dinámicas laborales comunes, para ilustrar cómo operan los mecanismos de la Ley Karin. Analizaremos qué constituye acoso según la ley, cuáles son los procedimientos de denuncia e investigación, qué medidas de protección existen para las víctimas y testigos, y cuál es el rol de empleadores y trabajadores en la prevención activa.</p>
+                 <p>Es fundamental reconocer que la Ley Karin no solo busca sancionar, sino primordialmente prevenir. Impulsa una cultura organizacional donde el respeto mutuo, la comunicación efectiva y la tolerancia cero hacia cualquier forma de violencia o acoso sean la norma. Esto implica un compromiso activo de todos los niveles jerárquicos, desde la alta dirección hasta cada colaborador. A través de los ejemplos y análisis que presentaremos, buscamos entregar herramientas prácticas para identificar conductas indebidas, saber cómo actuar frente a ellas (ya sea como víctima, testigo o responsable de aplicar protocolos) y contribuir a la construcción de espacios de trabajo más saludables y productivos. Consideraremos diversas perspectivas y roles dentro de una organización para ofrecer una visión integral. Recuerde, un ambiente laboral positivo no solo cumple con la ley, sino que también potencia el bienestar, la creatividad y el compromiso de los equipos. <strong>(Este es un ejemplo de texto introductorio, se requiere contenido mucho más extenso para cumplir las 400 palabras)</strong></p>
+                 <p>La implementación efectiva de la Ley Karin exige más que la simple existencia de un protocolo; requiere una comprensión profunda de sus principios y una voluntad genuina de aplicarlos. Los casos que analizaremos abarcarán distintas formas de acoso y violencia, incluyendo el acoso sexual, el acoso laboral (mobbing), y la violencia ejercida por terceros (clientes, proveedores) en el contexto laboral. Desglosaremos los elementos clave que definen cada una de estas conductas según la ley, diferenciándolas de conflictos laborales ordinarios o del ejercicio legítimo de la potestad de mando. También abordaremos la importancia de la perspectiva de género en el análisis y abordaje del acoso sexual y laboral, reconociendo las dinámicas de poder y las vulnerabilidades específicas que pueden influir en estas situaciones. La confidencialidad, la debida diligencia en la investigación, la imparcialidad y las medidas de resguardo para denunciantes y testigos son pilares fundamentales que exploraremos a través de los escenarios prácticos. El objetivo final es que cada participante adquiera la confianza y el conocimiento necesarios para navegar estas complejas situaciones, promoviendo activamente un cambio cultural hacia el respeto irrestricto de la dignidad en el trabajo. <strong>(Texto adicional para acercarse a las 400 palabras)</strong></p>
+            </div>
+        </section>
+
+        <section class="content-module content-module--alt-bg">
+            <h2>Voces del Entorno Laboral: Perspectivas sobre un Caso Hipotético</h2>
+            <p>Para entender la complejidad de una situación de acoso, es útil considerar las diferentes perspectivas involucradas. A continuación, se presentan testimonios ficticios (y anonimizados) que reflejan cómo distintas personas podrían vivir o percibir un mismo incidente en el marco de la Ley Karin.</p>
+
+            <div class="quote-block">
+                <blockquote>"Sentía que cada comentario sobre mi ropa o mi apariencia era una forma de minimizar mi trabajo. Al principio intenté ignorarlo, pero se volvió constante y afectó mi confianza y mi capacidad para concentrarme. Decidí hablar porque nadie debería sentirse así en su lugar de trabajo."</blockquote>
+                <footer>Ana, Afectada Directa (Hipótesis)</footer>
+            </div>
+
+            <div class="quote-block">
+                <blockquote>"Noté que el ambiente se puso tenso. Escuché algunos comentarios que me parecieron fuera de lugar, pero no sabía si era mi impresión o si debía intervenir. Me preocupaba meterme en problemas o que me vieran como 'sapo'. Ahora entiendo la importancia de ser un testigo activo y responsable."</blockquote>
+                <footer>Carlos, Compañero de Equipo (Hipótesis)</footer>
+            </div>
+
+             <div class="quote-block">
+                <blockquote>"Recibimos la denuncia a través del canal formal. Inmediatamente activamos el protocolo de investigación interna, asegurando confidencialidad y ofreciendo medidas de resguardo. Nuestro rol es investigar objetivamente los hechos y tomar las acciones correctivas necesarias para proteger a nuestros colaboradores y restaurar un buen clima laboral."</blockquote>
+                <footer>Elena, Encargada de RR.HH. (Hipótesis)</footer>
+            </div>
+        </section>
+
+         <section class="content-module text-center">
+             <h2>Fomentando un Ambiente Positivo</h2>
+             <p>La prevención activa es clave. Una imagen puede inspirar reflexión sobre el trabajo en equipo y el respeto mutuo.</p>
+             <img src="https://i.postimg.cc/J47rptk4/DSC_8289-1936-min.jpg" alt="Imagen decorativa sobre trabajo en equipo y colaboración positiva" class="decorative-image img-style-1"> </section>
+
+       
+
+
+
+
+
+<section class="content-module">
+    <h2>¿Qué Hacer Si...? Guía Rápida de Acción</h2>
+    <p>Navegar una situación de acoso puede ser confuso. Este diagrama interactivo resume los pasos iniciales recomendados si presencias o experimentas una conducta indebida según la Ley Karin. <strong>Pasa el cursor sobre los iconos para más información.</strong> (Diagrama simplificado para fines ilustrativos).</p>
+    
+    <style>
+    /* Estilos aislados con prefijo "tt-" para evitar conflictos */
+    .tt-icon-container {
+        text-align: center;
+        width: 18%;
+        min-width: 80px;
+        margin-bottom: 15px;
+        position: relative;
+    }
+    
+    .tt-icon {
+        background-color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border: 2px solid #3498db;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+    
+    .tt-icon:hover {
+        transform: scale(1.1);
+        border-color: #ff7700;
+    }
+    
+    .tt-icon:hover svg {
+        stroke: #ff7700;
+    }
+    
+    .tt-title {
+        margin-top: 8px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    
+    .tt-tooltip {
+        position: absolute;
+        bottom: 115%;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 200px;
+        max-width: 250px;
+        background-color: white;
+        border-radius: 6px;
+        padding: 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+        z-index: 10;
+        text-align: left;
+        border-left: 4px solid #ff7700;
+        pointer-events: none;
+    }
+    
+    .tt-icon-container:hover .tt-tooltip {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .tt-tooltip:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -8px;
+        border-width: 8px;
+        border-style: solid;
+        border-color: white transparent transparent transparent;
+    }
+    
+    .tt-tooltip strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+    
+    .tt-tooltip p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.4;
+        color: #555;
+    }
+    
+    @media (max-width: 767px) {
+        .tt-tooltip {
+            width: 180px;
+            min-width: 180px;
+            font-size: 12px;
+        }
+    }
+    </style>
+    
+    <div class="interactive-image-container" style="margin-bottom: 20px;">
+        <!-- Imagen de fondo con transparencia -->
+        <div style="position: relative; width: 100%; background-color: #f8f9fa; border-radius: 8px; padding: 10px; box-sizing: border-box;">
+            <!-- Fondo con imagen y 70% de transparencia - relación 4:1 -->
+            <div style="position: relative; width: 100%; height: 0; padding-bottom: 25%; border-radius: 8px; margin-bottom: 20px; overflow: hidden;">
+                <img src="https://i.postimg.cc/Bbrd9Yv0/Fotolia_59090399_Subscription_XXL2-min.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; border-radius: 8px;" alt="Personas trabajando juntas en una mesa">
+            </div>
+            
+            <!-- Contenedor de iconos - simple y alineado -->
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 15px;">
+                
+                <!-- Paso 1: Identificar -->
+                <div class="tt-icon-container">
+                    <div class="tt-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                    </div>
+                    <p class="tt-title">Identificar</p>
+                    <div class="tt-tooltip">
+                        <strong>Identificar la conducta inapropiada</strong>
+                        <p>Reconoce si estás presenciando acoso según la Ley Karin. Incluye conductas humillantes, ofensivas o intimidatorias que afectan la dignidad de la persona.</p>
+                    </div>
+                </div>
+                
+                <!-- Paso 2: Documentar -->
+                <div class="tt-icon-container">
+                    <div class="tt-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <p class="tt-title">Documentar</p>
+                    <div class="tt-tooltip">
+                        <strong>Documenta lo ocurrido</strong>
+                        <p>Anota fecha, hora, lugar y descripción detallada del incidente. Si hay testigos, registra sus nombres. Esta documentación será vital para una posible denuncia formal.</p>
+                    </div>
+                </div>
+                
+                <!-- Paso 3: Reportar -->
+                <div class="tt-icon-container">
+                    <div class="tt-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <p class="tt-title">Reportar</p>
+                    <div class="tt-tooltip">
+                        <strong>Reporta el incidente</strong>
+                        <p>Comunica lo sucedido a tu supervisor, RRHH o al canal de denuncias establecido según el protocolo interno. La Ley Karin exige que las empresas tengan procedimientos claros.</p>
+                    </div>
+                </div>
+                
+                <!-- Paso 4: Buscar apoyo -->
+                <div class="tt-icon-container">
+                    <div class="tt-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <p class="tt-title">Buscar Apoyo</p>
+                    <div class="tt-tooltip">
+                        <strong>Busca apoyo profesional</strong>
+                        <p>No enfrentes la situación solo. Contacta con servicios de apoyo psicológico o legal disponibles a través de tu empresa, sindicato o entidades externas.</p>
+                    </div>
+                </div>
+                
+                <!-- Paso 5: Seguimiento -->
+                <div class="tt-icon-container">
+                    <div class="tt-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 11 12 14 22 4"></polyline>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                    </div>
+                    <p class="tt-title">Seguimiento</p>
+                    <div class="tt-tooltip">
+                        <strong>Haz seguimiento del caso</strong>
+                        <p>Mantente informado sobre el progreso de tu denuncia. La Ley Karin establece plazos para la investigación. Si no hay avances, considera elevar el caso a instancias superiores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="content-module content-module--alt-bg">
+            <h2>Identificando las Conductas: Tipos Clave según la Ley</h2>
+            <p>La Ley Karin aborda distintas manifestaciones de violencia y acoso en el trabajo. Es importante diferenciarlas:</p>
+            <div class="tabs-container">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="1">Acoso Laboral (Mobbing)</button>
+                    <button class="tab-button" data-tab="2">Acoso Sexual</button>
+                    <button class="tab-button" data-tab="3">Violencia de Terceros</button>
+                </div>
+                <div id="tab-1" class="tab-content active">
+                    <h4>Acoso Laboral (Mobbing)</h4>
+                    <p>Se refiere a toda conducta que constituya agresión u hostigamiento reiterado, ejercida por el empleador o por uno o más trabajadores, en contra de otro u otros trabajadores, por cualquier medio, y que tenga como resultado para el o los afectados su menoscabo, maltrato o humillación, o bien que amenace o perjudique su situación laboral o sus oportunidades en el empleo.</p>
+                    <ul>
+                        <li><strong>Clave:</strong> Reiteración, hostigamiento, menoscabo/maltrato/humillación.</li>
+                        <li><strong>Ejemplos (hipotéticos):</strong> Asignación de tareas degradantes de forma sistemática, aislamiento social deliberado, críticas destructivas constantes y públicas, sobrecarga o vaciamiento de funciones injustificado.</li>
+                    </ul>
+                </div>
+                <div id="tab-2" class="tab-content">
+                    <h4>Acoso Sexual</h4>
+                    <p>Consiste en que una persona realice, en forma indebida, por cualquier medio, requerimientos de carácter sexual, no consentidos por quien los recibe y que amenacen o perjudiquen su situación laboral o sus oportunidades en el empleo.</p>
+                     <ul>
+                        <li><strong>Clave:</strong> Requerimientos de carácter sexual, no consentidos, amenaza/perjuicio laboral.</li>
+                        <li><strong>Ejemplos (hipotéticos):</strong> Comentarios o bromas sexuales ofensivas reiteradas, exhibición de material pornográfico, contacto físico indebido, solicitudes de favores sexuales a cambio de beneficios laborales (o bajo amenaza de perjuicio).</li>
+                    </ul>
+                </div>
+                 <div id="tab-3" class="tab-content">
+                    <h4>Violencia en el Trabajo ejercida por Terceros</h4>
+                    <p>La Ley Karin también mandata a los empleadores a tomar medidas para prevenir y abordar la violencia ejercida por personas externas a la relación laboral directa (clientes, usuarios, proveedores, etc.) contra los trabajadores, en la medida que ocurra con motivo u ocasión del trabajo.</p>
+                     <ul>
+                        <li><strong>Clave:</strong> Agresiones físicas o psicológicas por parte de terceros, relacionadas con el trabajo.</li>
+                        <li><strong>Ejemplos (hipotéticos):</strong> Insultos o amenazas de un cliente a un vendedor, agresión física a personal de seguridad, hostigamiento por parte de un proveedor. El empleador debe tener protocolos para gestionar estos riesgos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+         <section class="content-module text-center">
+             <h2>Entornos Laborales Seguros</h2>
+             <p>La seguridad psicológica es tan importante como la física.</p>
+             <div class="decorative-image img-style-3-container"> <img src="https://i.postimg.cc/85WxhFgH/IMG_0348-1843-min.jpg" alt="Imagen decorativa sobre un ambiente de oficina seguro y tranquilo" class="img-style-3">
+            </div>
+         </section>
+
+        <section class="content-module">
+            <h2>El Rol del Protocolo y la Investigación Interna</h2>
+            <div class="long-text-section">
+                <p>Un elemento central de la Ley Karin es la obligación de los empleadores de contar con un <strong>protocolo de prevención del acoso sexual, laboral y violencia en el trabajo</strong>. Este protocolo no es un simple documento; es la hoja de ruta que guía las acciones de la empresa para cumplir con la ley. Debe ser claro, accesible y conocido por todos los trabajadores. Su contenido mínimo incluye la identificación de peligros y evaluación de riesgos psicosociales asociados a estas conductas, medidas preventivas concretas, y un procedimiento formal de investigación y sanción. Este procedimiento debe garantizar principios fundamentales como la confidencialidad, la imparcialidad, la celeridad y la adopción de medidas de protección eficaces para denunciantes y testigos, evitando cualquier tipo de represalia.</p>
+                <p>El proceso de <strong>investigación interna</strong> es crítico. Cuando se recibe una denuncia, la empresa (a través de la instancia designada en su protocolo, usualmente RR.HH. o un comité específico) debe iniciar una investigación seria y diligente. Esto implica recopilar antecedentes, entrevistar a las partes involucradas y a posibles testigos (siempre resguardando su identidad si así lo solicitan y es procedente), analizar la evidencia disponible y emitir un informe de conclusiones fundado. Es vital que la investigación se realice con perspectiva de género, especialmente en casos de acoso sexual, reconociendo las asimetrías de poder que pueden existir.</p>
+                <p>Las conclusiones de la investigación deben determinar si los hechos denunciados constituyen efectivamente acoso o violencia según la ley. De ser así, el empleador tiene la obligación de aplicar las <strong>medidas correctivas y sanciones</strong> que correspondan, las cuales deben estar estipuladas en el Reglamento Interno de Orden, Higiene y Seguridad. Estas pueden ir desde amonestaciones hasta el despido, dependiendo de la gravedad de la falta. Además, se deben implementar medidas reparatorias para la víctima y acciones para restaurar el buen ambiente laboral. Si la investigación descarta el acoso, igualmente debe informarse a las partes y, si se identificaron otros problemas de convivencia, proponer mejoras. La transparencia en el proceso (respetando la confidencialidad) y la comunicación clara de los resultados son esenciales para generar confianza en el sistema. <strong>(Texto adicional para acercarse a las 400 palabras).</strong></p>
+                 <p>Es importante destacar que el protocolo debe ser un instrumento vivo, revisado y actualizado periódicamente, idealmente con participación de los trabajadores o sus representantes. Las capacitaciones regulares sobre el contenido del protocolo, los tipos de acoso y violencia, los canales de denuncia y los derechos y deberes de cada persona son fundamentales para asegurar su efectividad. La prevención no se agota en tener un protocolo; se materializa en una cultura organizacional que activamente promueve el respeto y rechaza cualquier forma de abuso. La Ley Karin entrega el marco, pero la responsabilidad de construir ese ambiente seguro recae en toda la comunidad laboral. El compromiso de la alta dirección es indispensable para permear esta cultura en toda la estructura. <strong>(Texto final para completar &gt;400 palabras)</strong></p>
+            </div>
+        </section>
+
+        <section class="content-module content-module--alt-bg">
+             <h2 class="text-center">Impacto y Relevancia en Cifras</h2>
+             <p class="text-center">Aunque medir el acoso es complejo, algunos datos (hipotéticos o basados en tendencias generales pre-Ley Karin, sujetos a variación) nos ayudan a dimensionar la importancia de la prevención.</p>
+            <div class="counters-container">
+                <div class="counter-item">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" style="font-size: 2em; color: var(--color-primary-grad); margin-bottom: var(--spacing-sm);"><path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 480c0-35.3 28.7-64 64-64H416c35.3 0 64 28.7 64 64V512H0V480zM192 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM480 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM576 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32 128c0-35.3 28.7-64 64-64h64v32H608c-17.7 0-32 14.3-32 32v32H576V480z"></path></svg>
+                    <span class="counter-number" data-target="70">70</span>
+                    <span class="counter-label">% Aprox. de trabajadores que perciben mejoras en clima laboral con protocolos activos (Estimación general)</span>
+                </div>
+                 <div class="counter-item">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" style="font-size: 2em; color: var(--color-primary-grad); margin-bottom: var(--spacing-sm);"><path d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6v-79.1L41 97.4c-9.8-12-11.1-28.6-5.1-42.5z"></path></svg>
+                    <span class="counter-number" data-target="25">25</span>
+                    <span class="counter-label">% Reducción estimada en ausentismo por causas asociadas al estrés laboral (Potencial con buena gestión)</span>
+                </div>
+                <div class="counter-item">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" style="font-size: 2em; color: var(--color-primary-grad); margin-bottom: var(--spacing-sm);"><path d="M48 32C30.3 32 16 46.3 16 64v80c0 17.7 14.3 32 32 32H192c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32H48zM16 224v80c0 17.7 14.3 32 32 32H192c17.7 0 32-14.3 32-32V224H16zM288 32h80c17.7 0 32 14.3 32 32v80c0 17.7-14.3 32-32 32H288V32zM432 224H288v80c0 17.7 14.3 32 32 32h80c17.7 0 32-14.3 32-32V224zM528 32H448V176h80c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32zM448 224V368h80c17.7 0 32-14.3 32-32V256c0-17.7-14.3-32-32-32H448zM256 224H64V416H256V224zM0 448c0 17.7 14.3 32 32 32H288c17.7 0 32-14.3 32-32V384H0v64zm384 64c17.7 0 32-14.3 32-32V384H320v96c0 17.7 14.3 32 32 32H544c17.7 0 32-14.3 32-32V384H480v96c0 17.7 14.3 32 32 32H384z"></path></svg>
+                    <span class="counter-number" data-target="100">100</span>
+                    <span class="counter-label">% de Empresas (teóricamente) obligadas a tener protocolo según Ley Karin</span>
+                </div>
+            </div>
+             <small class="text-center" style="display: block; margin-top: var(--spacing-sm);">Nota: Las cifras porcentuales son ilustrativas y/o basadas en estimaciones generales para dimensionar el problema y el potencial impacto positivo. Datos específicos pueden variar. La obligatoriedad del protocolo aplica según criterios de tamaño de empresa (a verificar en legislación vigente).</small>
+        </section>
+
+         <section class="content-module">
+             <h2 class="text-center">Áreas de Impacto Positivo de un Buen Protocolo</h2>
+             <p class="text-center">La implementación efectiva de la Ley Karin no solo cumple una obligación legal, sino que genera beneficios tangibles en diversas áreas.</p>
+             <div class="chart-container">
+                 <h4 style="text-align: center; margin-bottom: var(--spacing-lg);">Valoración Estimada de Mejoras (Escala 1-100)</h4>
+                 <div class="bar-chart">
+                     <div class="chart-bar" style="height: 85%; background-color: var(--color-primary);" title="Clima Laboral: 85%">
+                         <span aria-hidden="true">85%</span>
+                         <div class="chart-label">Clima Laboral</div>
+                     </div>
+                     <div class="chart-bar" style="height: 70%; background-color: var(--color-primary-grad);" title="Productividad: 70%">
+                         <span aria-hidden="true">70%</span>
+                         <div class="chart-label">Productividad</div>
+                     </div>
+                      <div class="chart-bar" style="height: 90%; background-color: var(--color-accent1);" title="Retención Talento: 90%">
+                         <span aria-hidden="true">90%</span>
+                         <div class="chart-label">Retención Talento</div>
+                     </div>
+                     <div class="chart-bar" style="height: 60%; background-color: var(--color-accent2);" title="Reputación Empresa: 60%">
+                          <span aria-hidden="true">60%</span>
+                         <div class="chart-label">Reputación Empresa</div>
+                     </div>
+                 </div>
+                 <small class="text-center" style="display: block; margin-top: 40px;">Nota: Gráfico ilustrativo basado en percepciones generales sobre los beneficios de ambientes laborales sanos. La magnitud del impacto puede variar.</small>
+             </div>
+         </section>
+
+        <section class="content-module content-module--alt-bg">
+            <h2>Preguntas Frecuentes sobre la Aplicación Práctica</h2>
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <button class="accordion-button" aria-expanded="false">
+                        <span>¿Qué diferencia hay entre conflicto laboral y acoso laboral?</span>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>El <strong>conflicto laboral</strong> es una diferencia de opiniones o intereses entre partes (ej. desacuerdo sobre tareas, condiciones), generalmente puntual y sin intención de dañar. El <strong>acoso laboral</strong> (mobbing) implica una conducta <strong>reiterada</strong> de hostigamiento, agresión o humillación con el objetivo o resultado de menoscabar a la víctima. La Ley Karin se enfoca en este último.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item">
+                    <button class="accordion-button" aria-expanded="false">
+                        <span>¿Un solo incidente puede ser considerado acoso sexual?</span>
+                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Sí. A diferencia del acoso laboral que generalmente requiere reiteración, la ley define el <strong>acoso sexual</strong> como la realización de requerimientos de carácter sexual <strong>indebidos</strong> y <strong>no consentidos</strong> que amenacen o perjudiquen la situación laboral. Un único incidente grave (ej. una proposición sexual explícita ligada a una promoción) podría ser suficiente para constituir acoso sexual.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item">
+                    <button class="accordion-button" aria-expanded="false">
+                        <span>¿Qué pasa si la denuncia resulta ser falsa o infundada?</span>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                         <div class="accordion-content-inner">
+                            <p>El protocolo de investigación debe ser riguroso para determinar la veracidad de los hechos. Si se comprueba que una denuncia fue realizada de <strong>mala fe</strong> (con intención de perjudicar injustamente), el denunciante podría enfrentar sanciones disciplinarias según el reglamento interno. Sin embargo, es crucial diferenciar esto de una denuncia genuina donde no se logra acreditar el acoso por falta de pruebas. La protección contra represalias aplica a denuncias de buena fe.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item">
+                    <button class="accordion-button" aria-expanded="false">
+                        <span>¿Como testigo, tengo alguna obligación? ¿Estoy protegido?</span>
+                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                         <div class="accordion-content-inner">
+                             <p>Los testigos juegan un rol importante en la aclaración de los hechos. Si eres citado a declarar en una investigación, se espera tu colaboración honesta. La Ley Karin establece explícitamente que el empleador debe adoptar <strong>medidas de resguardo</strong> para proteger a los testigos contra posibles represalias (ej. cambios de puesto injustificados, hostigamiento, despido). Tu identidad puede ser mantenida en reserva si existen temores fundados, según lo evalúe el investigador.</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-module">
+            <h2>Secuencia de Eventos: Análisis de un Caso Hipotético Simple</h2>
+            <p>Veamos cómo podría desarrollarse una situación desde la ocurrencia hasta la resolución, aplicando un protocolo basado en la Ley Karin (flujo simplificado):</p>
+            <ul class="timeline-vertical">
+                <li class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-time">Semana 1</span>
+                        <h4 class="timeline-title">Incidente(s) Inicial(es)</h4>
+                        <p>Un trabajador (A) comienza a recibir comentarios inapropiados y reiterados sobre su vida personal por parte de un compañero (B) en presencia de otros.</p>
+                    </div>
+                </li>
+                 <li class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-time">Semana 2</span>
+                        <h4 class="timeline-title">Escalada y Malestar</h4>
+                        <p>La conducta de B se intensifica, generando un ambiente incómodo. A se siente menoscabado y su rendimiento empieza a verse afectado. A documenta algunos episodios.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-time">Semana 3</span>
+                        <h4 class="timeline-title">Consulta y Denuncia</h4>
+                        <p>A consulta el protocolo interno y decide presentar una denuncia formal y confidencial ante RR.HH., detallando los hechos y mencionando posibles testigos.</p>
+                     </div>
+                </li>
+                 <li class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-time">Semana 3-4</span>
+                        <h4 class="timeline-title">Inicio de Investigación y Medidas de Resguardo</h4>
+                        <p>RR.HH. acusa recibo, informa a A sobre el proceso y le ofrece medidas de resguardo (ej. cambio temporal de puesto si es viable y A lo desea). Se notifica a B sobre la denuncia (sin revelar identidad de A inicialmente si se justifica) y se inicia la recopilación de antecedentes.</p>
+                    </div>
+                </li>
+                 <li class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-time">Semana 4-5</span>
+                        <h4 class="timeline-title">Entrevistas y Análisis</h4>
+                        <p>Se entrevista por separado a A, B y testigos relevantes, asegurando confidencialidad y objetividad. Se analiza la evidencia (correos, mensajes, testimonios).</p>
+                    </div>
+                </li>
+                 <li class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-time">Semana 6</span>
+                         <h4 class="timeline-title">Informe de Conclusiones y Acciones</h4>
+                        <p>La investigación concluye que existió acoso laboral. Se informa a las partes. Se aplica una sanción a B (ej. amonestación severa, capacitación obligatoria) según reglamento interno. Se implementan medidas reparatorias para A y acciones para reforzar la cultura de respeto en el equipo.</p>
+                    </div>
+                </li>
+            </ul>
+             <small class="text-center" style="display: block; margin-top: var(--spacing-sm);">Nota: Los plazos y medidas específicas pueden variar según cada caso y protocolo.</small>
+        </section>
+
+
+
+
+
+
+
+<section class="content-module content-module--alt-bg text-center">
+    <h2>Construyendo Puentes de Comunicación</h2>
+    <p>El diálogo respetuoso es fundamental para prevenir y resolver conflictos en entornos laborales saludables.</p>
+    
+    <style>
+    /* Estilos del carrusel con prefijo cp- para evitar conflictos */
+    .cp-card-carousel {
+        position: relative;
+        max-width: 1000px;
+        margin: 40px auto;
+        overflow: hidden;
+    }
+    
+    .cp-carousel-container {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+    
+    .cp-card {
+        flex: 0 0 300px;
+        height: 400px;
+        margin: 0 15px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        transform: scale(0.9);
+    }
+    
+    .cp-card.active {
+        transform: scale(1);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .cp-card-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+    
+    .cp-card-content {
+        padding: 12px 20px 20px; /* Reducido de 20px a 12px en la parte superior */
+        background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+        height: calc(100% - 220px);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .cp-card-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 6px; /* Reducido de 10px a 6px */
+        color: #2c3e50;
+    }
+    
+    .cp-card-text {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.5;
+        flex-grow: 1;
+        margin-bottom: 15px; /* Añadido margen inferior para crear espacio */
+    }
+    
+    .cp-card-button {
+        display: inline-block;
+        padding: 8px 15px;
+        background-color: #3498db;
+        color: white;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: bold;
+        transition: background 0.3s;
+        margin-top: 10px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .cp-card-button:hover {
+        background-color: #2980b9;
+    }
+    
+    .cp-controls {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .cp-control-btn {
+        background-color: transparent;
+        border: 2px solid #3498db;
+        color: #3498db;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin: 0 10px;
+        transition: all 0.3s;
+    }
+    
+    .cp-control-btn:hover {
+        background-color: #3498db;
+        color: white;
+    }
+    
+    .cp-indicator-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    
+    .cp-indicator {
+        width: 10px;
+        height: 10px;
+        background-color: #ddd;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    
+    .cp-indicator.active {
+        background-color: #3498db;
+    }
+    
+    @media (max-width: 768px) {
+        .cp-card {
+            flex: 0 0 calc(100% - 30px);
+        }
+    }
+    </style>
+    
+    <div class="cp-card-carousel">
+        <div class="cp-carousel-container" id="cardContainer" style="transform: translateX(calc(50% - 495px));">
+            <!-- Tarjeta 1 -->
+            <div class="cp-card">
+                <img src="https://i.postimg.cc/Gt2fy04r/dsc-1957-212-314-min.jpg" alt="Comunicación efectiva en el trabajo" class="cp-card-img">
+                <div class="cp-card-content">
+                    <h3 class="cp-card-title">Comunicación Efectiva</h3>
+                    <p class="cp-card-text">El diálogo abierto crea espacios seguros donde todos pueden expresarse sin temor a represalias. La comunicación clara y respetuosa es la base de un entorno laboral saludable.</p>
+                   
+                </div>
+            </div>
+            
+            <!-- Tarjeta 2 -->
+            <div class="cp-card active">
+                <img src="https://i.postimg.cc/28RDtwXw/graphicstock-stunned-astonished-young-businessman-talking-on-cell-phone-in-office_S_LcGiMH3x-min.jpg" alt="Resolución de conflictos en ambientes laborales" class="cp-card-img">
+                <div class="cp-card-content">
+                    <h3 class="cp-card-title">Resolución de Conflictos</h3>
+                    <p class="cp-card-text">Abordar los desacuerdos de manera constructiva y buscar soluciones colaborativas fortalece las relaciones laborales y previene situaciones de acoso bajo la Ley Karin.</p>
+                    
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3 -->
+            <div class="cp-card">
+                <img src="https://i.postimg.cc/0yzh2K3Q/graphicstock-upset-sad-businesswoman-sitting-at-her-working-place-over-white-background_rOlaEkKHnx_(.jpg" class="cp-card-img">
+                <div class="cp-card-content">
+                    <h3 class="cp-card-title">Cultura de Respeto</h3>
+                    <p class="cp-card-text">Fomentar un ambiente donde la diversidad se celebra y el respeto mutuo es la norma. Establecer límites claros crea un espacio de trabajo positivo para todos.</p>
+                   
+                </div>
+            </div>
+        </div>
+        
+        <!-- Controles de navegación -->
+        <div class="cp-controls">
+            <button class="cp-control-btn" onclick="moveCarousel(-1)">
+                ❮
+            </button>
+            <button class="cp-control-btn" onclick="moveCarousel(1)">
+                ❯
+            </button>
+        </div>
+        
+        <!-- Indicadores -->
+        <div class="cp-indicator-container">
+            <span class="cp-indicator" onclick="jumpToCard(0)"></span>
+            <span class="cp-indicator active" onclick="jumpToCard(1)"></span>
+            <span class="cp-indicator" onclick="jumpToCard(2)"></span>
+        </div>
+    </div>
+    
+    <script>
+        // Variables para el carrusel
+        let currentIndex = 1; // Cambiado de 0 a 1 para iniciar en la tarjeta central
+        const totalCards = 3;
+        const cardContainer = document.getElementById('cardContainer');
+        const cards = document.querySelectorAll('.cp-card');
+        const indicators = document.querySelectorAll('.cp-indicator');
+        
+        // Función para actualizar el carrusel
+        function updateCarousel() {
+            // En móviles, simplemente mueve el contenedor
+            if (window.innerWidth <= 768) {
+                cardContainer.style.transform = `translateX(${-currentIndex * 100}%)`;
+            } else {
+                // En desktop, centramos la tarjeta activa
+                let offset = currentIndex * (330); // 300px card width + 30px margins
+                cardContainer.style.transform = `translateX(calc(50% - ${offset}px - 165px))`;
+            }
+            
+            // Actualizar clases active
+            cards.forEach((card, index) => {
+                card.classList.toggle('active', index === currentIndex);
+            });
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        // Mover el carrusel
+        function moveCarousel(direction) {
+            currentIndex = (currentIndex + direction + totalCards) % totalCards;
+            updateCarousel();
+        }
+        
+        // Saltar a una tarjeta específica
+        function jumpToCard(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+        
+        // Mostrar información adicional (ejemplo)
+        function showCardInfo(cardNumber) {
+            // Puedes implementar una funcionalidad de modal aquí
+            alert(`Más información sobre la tarjeta ${cardNumber}`);
+        }
+        
+        // Inicializar el carrusel
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCarousel();
+            
+            // Ajustar el carrusel cuando cambia el tamaño de la ventana
+            window.addEventListener('resize', updateCarousel);
+        });
+    </script>
+</section>         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="content-module"> <div class="quiz-container" id="quiz-activity">
+                 <h3>Actividad: Comprueba tu Comprensión</h3>
+                 <p>Responde las siguientes preguntas para verificar tu entendimiento sobre la aplicación de la Ley Karin.</p>
+
+                 <form id="ley-karin-quiz">
+                     <div class="quiz-question" data-question="1">
+                         <p>1. ¿Cuál es el objetivo principal de la Ley Karin (N° 21.643)?</p>
+                         <div class="quiz-options">
+                             <label>
+                                 <input type="radio" name="q1" value="a"> a) Regular únicamente los accidentes laborales.
+                                 <span class="quiz-feedback"></span>
+                             </label>
+                             <label>
+                                 <input type="radio" name="q1" value="b" data-correct="true"> b) Prevenir, investigar y sancionar el acoso laboral, sexual y la violencia en el trabajo.
+                                 <span class="quiz-feedback"></span>
+                             </label>
+                              <label>
+                                 <input type="radio" name="q1" value="c"> c) Establecer las normas para la negociación colectiva.
+                                 <span class="quiz-feedback"></span>
+                             </label>
+                         </div>
+                     </div>
+
+                     <div class="quiz-question" data-question="2">
+                         <p>2. Según la ley, el acoso laboral (mobbing) requiere que la conducta sea:</p>
+                         <div class="quiz-options">
+                             <label>
+                                 <input type="radio" name="q2" value="a" data-correct="true"> a) Reiterada y cause menoscabo, maltrato o humillación.
+                                 <span class="quiz-feedback"></span>
+                             </label>
+                              <label>
+                                 <input type="radio" name="q2" value="b"> b) Un incidente aislado, sin importar el impacto.
+                                 <span class="quiz-feedback"></span>
+                             </label>
+                             <label>
+                                 <input type="radio" name="q2" value="c"> c) Realizada exclusivamente por el empleador.
+                                  <span class="quiz-feedback"></span>
+                             </label>
+                         </div>
+                     </div>
+
+                     <div class="quiz-question" data-question="3">
+                         <p>3. Si presencias una situación que podría ser acoso, ¿qué recomienda la ley?</p>
+                         <div class="quiz-options">
+                             <label>
+                                 <input type="radio" name="q3" value="a"> a) Ignorarlo para no involucrarse.
+                                 <span class="quiz-feedback"></span>
+                             </label>
+                              <label>
+                                 <input type="radio" name="q3" value="b"> b) Intervenir directamente y confrontar al acosador de inmediato.
+                                 <span class="quiz-feedback"></span>
+                             </label>
+                             <label>
+                                 <input type="radio" name="q3" value="c" data-correct="true"> c) Documentar (si es seguro), buscar apoyo y considerar reportarlo por los canales formales si procede.
+                                 <span class="quiz-feedback"></span>
+                             </label>
+                         </div>
+                     </div>
+
+                      <div class="quiz-question" data-question="4">
+                         <p>4. ¿La Ley Karin protege a los denunciantes y testigos contra represalias?</p>
+                         <div class="quiz-options">
+                             <label>
+                                 <input type="radio" name="q4" value="a" data-correct="true"> a) Sí, obliga al empleador a tomar medidas de resguardo.
+                                 <span class="quiz-feedback"></span>
+                             </label>
+                              <label>
+                                 <input type="radio" name="q4" value="b"> b) No, la protección es solo para la víctima directa.
+                                 <span class="quiz-feedback"></span>
+                             </label>
+                             <label>
+                                 <input type="radio" name="q4" value="c"> c) Solo si la denuncia resulta ser 100% comprobada.
+                                 <span class="quiz-feedback"></span>
+                             </label>
+                         </div>
+                     </div>
+
+                     <div class="quiz-question" data-question="5">
+                         <p>5. ¿Quién es responsable de implementar el protocolo de prevención según la Ley Karin?</p>
+                         <div class="quiz-options">
+                             <label>
+                                 <input type="radio" name="q5" value="a"> a) Exclusivamente los sindicatos.
+                                  <span class="quiz-feedback"></span>
+                             </label>
+                             <label>
+                                 <input type="radio" name="q5" value="b" data-correct="true"> b) El empleador.
+                                 <span class="quiz-feedback"></span>
+                             </label>
+                             <label>
+                                 <input type="radio" name="q5" value="c"> c) Los trabajadores individualmente.
+                                 <span class="quiz-feedback"></span>
+                              </label>
+                         </div>
+                     </div>
+
+                     <div id="quiz-summary">
+                         <h4>Resultados del Quiz</h4>
+                         <p id="quiz-result-text">¡Has completado el quiz!</p>
+                     </div>
+                 </form>
+             </div>
+         </section>
+
+         <section class="activity-study-case"> <h3>
+                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></svg>
+                 Actividad: Análisis de Caso Complejo
+             </h3>
+             <p><strong>Escenario Hipotético:</strong> En un equipo de desarrollo de software, "Javier", un programador senior con excelente desempeño técnico pero con un historial de comentarios sarcásticos y críticas públicas hacia colegas menos experimentados, intensifica su comportamiento hacia "Laura", una nueva integrante. Javier constantemente descalifica sus ideas en reuniones, le asigna tareas triviales o imposibles de cumplir en los plazos, y hace "bromas" sobre su supuesta falta de capacidad frente a otros. Laura se siente intimidada, ansiosa y su confianza disminuye. Otros miembros del equipo notan la tensión pero no intervienen directamente, algunos por temor a Javier, otros por no considerarlo "tan grave". El líder del equipo, aunque percibe roces, lo atribuye a "diferencias de personalidad".</p>
+             <p><strong>Discusión (Reflexiona sobre esto):</strong></p>
+             <ul class="discussion-points">
+                 <li>¿Qué elementos de este escenario podrían constituir acoso laboral según la Ley Karin? ¿Por qué?</li>
+                 <li>¿Qué responsabilidades tienen el líder del equipo y el empleador en esta situación, incluso antes de una denuncia formal?</li>
+                  <li>Si fueras Laura, ¿qué pasos podrías seguir? ¿Cuáles serían los pros y contras de cada uno?</li>
+                 <li>Si fueras un compañero de equipo testigo, ¿qué acciones podrías tomar responsablemente?</li>
+                 <li>¿Qué medidas concretas (preventivas y correctivas) podría implementar la empresa para abordar esta situación y restaurar un buen ambiente laboral, enfocándose en la prevención futura?</li>
+             </ul>
+             <small>Este caso es ficticio y busca estimular el análisis crítico aplicando los conceptos de la Ley Karin.</small>
+         </section>
+
+         <section class="activity-reflection"> <h3>
+                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M32 64C32 28.7 60.7 0 96 0H416c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V64zM96 32a64 64 0 0 0-64 64v9.3c2.5-1.1 5.3-1.8 8.3-1.8H80V80c0-8.8 7.2-16 16-16h3.4c23.8-11.4 52.3-16 80.6-16s56.8 4.6 80.6 16H320c8.8 0 16 7.2 16 16v13.5c3-.6 6.2-.9 9.5-.9h11.3c-2.1-16.3-9.4-31.3-20.6-43.4C429.8 40.4 423.1 32 416 32H96zM48 216H32v40c0 8.8 7.2 16 16 16H80v80c0 8.8 7.2 16 16 16h40c8.8 0 16-7.2 16-16V272h48v96c0 8.8 7.2 16 16 16h40c8.8 0 16-7.2 16-16V272h48v40c0 8.8 7.2 16 16 16h40c8.8 0 16-7.2 16-16V272h32c8.8 0 16-7.2 16-16V216c0-8.8-7.2-16-16-16H48zm416 56v80c0 8.8 7.2 16 16 16h1.5c1-2.9 1.5-5.9 1.5-9V320c0-17-6.7-33-18.3-45l-7.6-7.6c-2.8-2.8-3.3-7.2-1.1-10.5s6.1-4.9 9.9-4.9h1.7c17.7 0 32 14.3 32 32v45c0 3.1-.5 6.1-1.5 9H480c-8.8 0-16-7.2-16-16z"></path></svg>
+                 Actividad: Tu Rol en la Prevención
+             </h3>
+             <p>La construcción de un ambiente laboral respetuoso es una tarea compartida. Tómate un momento para reflexionar sobre tu propio rol:</p>
+             <form>
+                 <label for="reflection-input">¿Qué acciones concretas puedes implementar en tu día a día para contribuir a prevenir el acoso y la violencia en tu lugar de trabajo, basándote en lo aprendido sobre la Ley Karin?</label>
+                 <textarea id="reflection-input" name="reflection" rows="6" placeholder="Escribe aquí tus ideas y compromisos personales... (Mínimo 50 palabras)"></textarea>
+                 <small>Esta reflexión es personal y no será calificada, pero te animamos a ser específico/a.</small>
+                 </form>
+         </section>
+
+        <section class="content-module pb-0"> <div class="callout">
+                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-144c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"></path></svg>
+                 <div>
+                     <h4>Recuerda Siempre:</h4>
+                     <p>Esta información es educativa y se basa en la Ley N° 21.643 vigente en Chile a fecha de Abril 2025 (fecha de creación de este contenido). Las leyes pueden cambiar. Para situaciones específicas, <strong>consulta siempre el protocolo oficial de tu empresa y busca asesoría legal o sindical calificada.</strong> La prevención y el respeto son responsabilidad de todos.</p>
+                 </div>
+             </div>
+        </section>
+
+
+        <footer style="text-align: center; padding: var(--spacing-xl) var(--spacing-lg); color: var(--color-accent2); font-size: 0.9em; margin-top: var(--spacing-xl); border-top: 1px solid var(--color-border);">
+            Has completado la sección "La Ley en Acción: Ejemplos y Análisis de Casos (Anónimos)". <br>
+            Esperamos que estos ejemplos y actividades te hayan ayudado a comprender mejor la aplicación práctica de la Ley Karin. <br>
+            Continúa con la siguiente sección para profundizar en otros aspectos relevantes.
+        </footer>
+
+    </div> <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Barra de Progreso ---
+            const progressBar = document.getElementById('progress-bar');
+            const updateProgressBar = () => {
+                const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollCurrent = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollPercent = (scrollCurrent / scrollTotal) * 100;
+                progressBar.style.width = scrollPercent + '%';
+            };
+            window.addEventListener('scroll', updateProgressBar);
+            updateProgressBar(); // Inicializar
+
+            // --- Botón Volver Arriba ---
+            const backToTopButton = document.getElementById('back-to-top');
+            const toggleBackToTopButton = () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            };
+            window.addEventListener('scroll', toggleBackToTopButton);
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- Acordeones ---
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const item = button.parentElement;
+                    const isActive = button.classList.contains('active');
+
+                    // Opcional: Cerrar otros acordeones al abrir uno
+                    // item.parentElement.querySelectorAll('.accordion-item').forEach(otherItem => {
+                    //     if (otherItem !== item) {
+                    //         otherItem.querySelector('.accordion-button').classList.remove('active');
+                    //         otherItem.querySelector('.accordion-button').setAttribute('aria-expanded', 'false');
+                    //         otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                    //         otherItem.querySelector('.accordion-content').style.paddingTop = '0';
+                    //          otherItem.querySelector('.accordion-content').style.paddingBottom = '0';
+                    //     }
+                    // });
+
+                    button.classList.toggle('active', !isActive);
+                    button.setAttribute('aria-expanded', !isActive);
+
+                    if (!isActive) {
+                        // Usar scrollHeight para obtener altura real del contenido
+                         content.style.maxHeight = content.scrollHeight + 'px';
+                         // Aplicar padding vertical al div interno cuando se expande
+                         const innerContent = content.querySelector('.accordion-content-inner');
+                         if(innerContent) {
+                             content.style.paddingTop = 'var(--spacing-lg)'; // Ajustar según CSS
+                             content.style.paddingBottom = 'var(--spacing-lg)'; // Ajustar según CSS
+                         } else { // Fallback si no hay div interno
+                             content.style.paddingTop = 'var(--spacing-lg)';
+                             content.style.paddingBottom = 'var(--spacing-lg)';
+                         }
+
+                    } else {
+                        content.style.maxHeight = null;
+                        content.style.paddingTop = '0'; // Quitar padding al colapsar
+                        content.style.paddingBottom = '0';
+                    }
+                });
+            });
+
+             // --- Pestañas Interactivas ---
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+
+                    // Desactivar todos los botones y contenidos
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Activar el botón y contenido seleccionados
+                    button.classList.add('active');
+                    document.getElementById(`tab-${tabId}`).classList.add('active');
+                });
+            });
+
+             // --- Contadores Animados ---
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        animateCounter(counter);
+                        observer.unobserve(counter); // Animar solo una vez al entrar
+
+                        // Añadir listener para reiniciar al hover DESPUÉS de la animación inicial
+                        counter.addEventListener('mouseenter', () => {
+                           // Detener animación anterior si existe
+                           if (counter.animationFrameId) {
+                                cancelAnimationFrame(counter.animationFrameId);
+                           }
+                           animateCounter(counter); // Reiniciar animación
+                        });
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger cuando el 50% es visible
+
+            const animateCounter = (counterElement) => {
+                const target = +counterElement.getAttribute('data-target');
+                const duration = 2000; // 2 segundos
+                const startTime = performance.now();
+
+                const step = (currentTime) => {
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / duration, 1); // Progreso entre 0 y 1
+                    const currentVal = Math.floor(progress * target);
+
+                    counterElement.textContent = currentVal;
+
+                    if (progress < 1) {
+                        counterElement.animationFrameId = requestAnimationFrame(step);
+                    } else {
+                         counterElement.textContent = target; // Asegurar valor final exacto
+                         cancelAnimationFrame(counterElement.animationFrameId);
+                         counterElement.animationFrameId = null; // Limpiar ID
+                    }
+                };
+                 // Cancelar animación previa si existe antes de iniciar una nueva
+                 if (counterElement.animationFrameId) {
+                     cancelAnimationFrame(counterElement.animationFrameId);
+                 }
+                counterElement.animationFrameId = requestAnimationFrame(step);
+            };
+
+            document.querySelectorAll('.counter-number').forEach(counter => {
+                counterObserver.observe(counter);
+            });
+
+
+             // --- Quiz con Feedback Inmediato y Resumen ---
+            const quizForm = document.getElementById('ley-karin-quiz');
+            const quizQuestions = quizForm.querySelectorAll('.quiz-question');
+            const quizSummary = document.getElementById('quiz-summary');
+            const quizResultText = document.getElementById('quiz-result-text');
+            let score = 0;
+            let answeredQuestions = 0;
+
+            quizQuestions.forEach(question => {
+                const options = question.querySelectorAll('.quiz-options input[type="radio"]');
+                const labels = question.querySelectorAll('.quiz-options label');
+                const feedbacks = question.querySelectorAll('.quiz-feedback');
+
+                options.forEach((option, index) => {
+                    option.addEventListener('change', () => {
+                        // Prevenir doble respuesta
+                        if (question.classList.contains('answered')) return;
+                        question.classList.add('answered');
+                        answeredQuestions++;
+
+                        const isCorrect = option.hasAttribute('data-correct');
+                        const selectedLabel = option.parentElement;
+                        const feedbackSpan = selectedLabel.querySelector('.quiz-feedback');
+
+                        // Marcar todas las opciones como deshabilitadas visualmente
+                        labels.forEach(lbl => lbl.classList.add('disabled'));
+                         // Deshabilitar radios para evitar cambios
+                        options.forEach(opt => opt.disabled = true);
+
+                        if (isCorrect) {
+                            score++;
+                            selectedLabel.classList.add('correct');
+                            feedbackSpan.textContent = '¡Correcto!';
+                            feedbackSpan.classList.add('correct');
+                        } else {
+                            selectedLabel.classList.add('incorrect');
+                            feedbackSpan.textContent = 'Incorrecto.';
+                            feedbackSpan.classList.add('incorrect');
+                            // Opcional: Resaltar la correcta
+                             labels.forEach(lbl => {
+                                if (lbl.querySelector('input[data-correct]')) {
+                                    lbl.classList.add('correct'); // Mostrar la correcta también
+                                }
+                            });
+                        }
+
+                        // Mostrar resumen si todas las preguntas están respondidas
+                        if (answeredQuestions === quizQuestions.length) {
+                            const percentage = Math.round((score / quizQuestions.length) * 100);
+                            quizResultText.textContent = `Resultado Final: Respondiste correctamente ${score} de ${quizQuestions.length} preguntas (${percentage}%).`;
+                            quizSummary.style.display = 'block';
+                        }
+                    });
+                });
+            });
+
+             // --- Imagen Interactiva (Hotspots) ---
+             // Ya funciona con CSS (:hover, :focus), no requiere JS adicional para tooltips simples.
+             // Si se quisiera un comportamiento más complejo (ej: mostrar un modal al clic), se añadiría aquí.
+             // Añadir focus a hotspots para accesibilidad con teclado
+             document.querySelectorAll('.hotspot').forEach(spot => {
+                 spot.setAttribute('tabindex', '0'); // Asegurar que sea enfocable
+             });
+
+        }); // Fin de DOMContentLoaded
+    </script>
+
+
+</body></html>

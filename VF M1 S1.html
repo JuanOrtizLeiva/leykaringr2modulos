@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a la Ley Karin: ¿Por Qué Nos Importa a Todos?</title>
+    <style>
+        /* --- Variables CSS --- */
+        :root {
+            --color-primary: #0A4A9D; /* Cobalto Oscuro Dinámico */
+            --color-secondary: #3B77C6; /* Gradiente/Secundario */
+            --color-accent1: #FB8C00;  /* Naranja Acento */
+            --color-accent2: #6C757D;  /* Gris Acento */
+            --color-text: #212529;     /* Texto Oscuro */
+            --color-background: #FFFFFF; /* Fondo Claro */
+            --color-background-alt: #F1F3F5; /* Fondo Alternativo/Suave */
+            --color-success: #28a745;
+            --color-danger: #dc3545;
+            --color-light-grey: #e9ecef;
+
+            --font-primary: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            --font-size-base: 16px;
+            --line-height-base: 1.6;
+
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-xxl: 64px;
+
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+
+            --transition-speed: 0.3s;
+        }
+
+        /* --- Estilos Base --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: var(--font-size-base);
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            line-height: var(--line-height-base);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+
+        /* --- Tipografía --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-primary);
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: var(--spacing-lg); text-align: center; }
+        h2 { font-size: 2rem; margin-top: var(--spacing-xl); margin-bottom: var(--spacing-lg); border-bottom: 2px solid var(--color-accent1); padding-bottom: var(--spacing-sm); }
+        h3 { font-size: 1.5rem; color: var(--color-secondary); margin-top: var(--spacing-lg); }
+        h4 { font-size: 1.25rem; color: var(--color-primary); }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            overflow-wrap: break-word;
+        }
+
+        a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+        a:hover, a:focus {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+        ul, ol {
+            margin-bottom: var(--spacing-md);
+            padding-left: 2em; /* Indentación correcta */
+        }
+
+        li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* --- Contenedores y Espaciado --- */
+        section {
+            margin-bottom: var(--spacing-xxl); /* Separación amplia entre secciones */
+            padding: var(--spacing-lg); /* Padding interno por defecto */
+            background-color: var(--color-background);
+            border-radius: var(--border-radius);
+            /* box-shadow: var(--box-shadow); /* Sombra suave opcional para secciones */
+        }
+
+        .content-subsection {
+             margin-bottom: var(--spacing-xl); /* Separación entre subsecciones dentro de una sección */
+             padding: var(--spacing-lg); /* Padding interno */
+             background-color: var(--color-background-alt);
+             border-radius: var(--border-radius);
+             box-shadow: var(--box-shadow);
+        }
+
+
+        /* --- Barra de Progreso --- */
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-accent1));
+            z-index: 1000;
+            transition: width 0.1s ease-out;
+        }
+
+        /* --- Botón Volver Arriba --- */
+        #backToTopBtn {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            bottom: var(--spacing-lg);
+            right: var(--spacing-lg);
+            z-index: 999;
+            border: none;
+            outline: none;
+            background-color: var(--color-primary);
+            color: white;
+            cursor: pointer;
+            padding: var(--spacing-md);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            box-shadow: var(--box-shadow-hover);
+            transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+        }
+        #backToTopBtn:hover {
+            background-color: var(--color-secondary);
+            transform: translateY(-3px);
+        }
+        #backToTopBtn svg { /* Para el ícono SVG */
+            fill: currentColor;
+            width: 1em;
+            height: 1em;
+            vertical-align: middle;
+        }
+
+
+        /* --- Callouts / Bloques Destacados --- */
+        .callout {
+            background-color: var(--color-background-alt);
+            border-left: 5px solid var(--color-accent1);
+            padding: var(--spacing-lg); /* Padding interno adecuado */
+            margin: var(--spacing-lg) 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        .callout-objective {
+            border-left-color: var(--color-primary);
+            background-color: #e7f0fa; /* Fondo más suave para objetivo */
+        }
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+        .callout strong {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        .callout .source {
+            display: block;
+            font-size: 0.85em;
+            color: var(--color-accent2);
+            text-align: right;
+            margin-top: var(--spacing-sm);
+        }
+
+        /* --- Contenedor de Video Responsivo --- */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporción 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: var(--spacing-lg) 0;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Tarjetas Giratorias Horizontales --- */
+        .flip-card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            perspective: 1000px;
+            margin: var(--spacing-lg) 0;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            min-height: 250px; /* Altura mínima */
+            border: none;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            display: flex; /* Para asegurar altura mínima */
+            flex-direction: column; /* Para asegurar altura mínima */
+        }
+        .flip-card:hover .flip-card-inner,
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg); /* Padding interno adecuado */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Evita que el contenido se salga */
+        }
+        .flip-card-front {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+        }
+         .flip-card-front svg {
+            width: 50px;
+            height: 50px;
+            margin-bottom: var(--spacing-md);
+            fill: white; /* Color del icono SVG */
+        }
+        .flip-card-back {
+            background-color: var(--color-background-alt);
+            color: var(--color-text);
+            transform: rotateY(180deg);
+        }
+         .flip-card-back p {
+            font-size: 0.95em;
+            text-align: left; /* Mejor para texto explicativo */
+             overflow-wrap: break-word;
+             max-height: calc(100% - (2 * var(--spacing-lg))); /* Evitar desborde vertical */
+            overflow-y: auto; /* Permitir scroll si el texto es muy largo */
+         }
+
+        /* --- Pestañas Interactivas --- */
+        .tabs-container {
+            margin: var(--spacing-lg) 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            background-color: var(--color-background); /* Fondo para todo el contenedor */
+        }
+        .tab-buttons {
+            display: flex;
+            background-color: var(--color-background-alt); /* Fondo para los botones */
+            border-bottom: 1px solid var(--color-light-grey);
+        }
+        .tab-button {
+            padding: var(--spacing-md) var(--spacing-lg);
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--color-accent2);
+            transition: all var(--transition-speed) ease;
+            border-bottom: 3px solid transparent; /* Indicador inactivo */
+            flex-grow: 1; /* Ocupa espacio disponible */
+            text-align: center;
+        }
+        .tab-button:hover {
+            background-color: #e2e6ea;
+            color: var(--color-primary);
+        }
+        .tab-button.active {
+            color: var(--color-primary);
+            font-weight: 600;
+            background-color: var(--color-background); /* Fondo del botón activo */
+            border-bottom: 3px solid var(--color-primary); /* Indicador activo */
+            border-top-left-radius: var(--border-radius); /* Coincide con el contenedor */
+            border-top-right-radius: var(--border-radius);
+        }
+        .tab-content {
+            display: none;
+            padding: var(--spacing-lg); /* Padding interno adecuado */
+            animation: fadeIn var(--transition-speed) ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+         /* --- Acordeones Expandibles --- */
+        .accordion-container {
+            margin: var(--spacing-lg) 0;
+        }
+        .accordion-item {
+            background-color: var(--color-background);
+            margin-bottom: var(--spacing-sm);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden; /* Asegura que el borde redondeado se aplique bien */
+        }
+        .accordion-header {
+            background-color: var(--color-background-alt);
+            padding: var(--spacing-md) var(--spacing-lg); /* Padding interno adecuado */
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--color-primary);
+             transition: background-color var(--transition-speed) ease;
+        }
+         .accordion-header:hover {
+            background-color: #e2e6ea;
+         }
+        .accordion-icon {
+            font-weight: bold;
+            transition: transform var(--transition-speed) ease;
+            font-size: 1.2rem;
+            flex-shrink: 0; /* Evita que el icono se encoja */
+            margin-left: var(--spacing-md);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding var(--transition-speed) ease-out; /* Transición suave */
+            background-color: var(--color-background);
+            padding: 0 var(--spacing-lg); /* Padding horizontal inicial */
+            border-top: 1px solid var(--color-light-grey); /* Separador sutil */
+        }
+         .accordion-content p:last-child {
+            margin-bottom: 0; /* Evita doble margen inferior */
+         }
+        .accordion-item.active .accordion-content {
+             /* max-height se calcula dinámicamente con JS */
+            padding-top: var(--spacing-lg); /* Padding superior al abrir */
+            padding-bottom: var(--spacing-lg); /* ÉNFASIS: Padding inferior adecuado */
+        }
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg); /* Cambia '+' a 'x' o similar */
+        }
+
+        /* --- Timeline Vertical --- */
+        .timeline-vertical-container {
+            position: relative;
+            padding: var(--spacing-lg) 0;
+            margin: var(--spacing-lg) 0;
+        }
+        .timeline-vertical-container::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--color-light-grey);
+             border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-xl);
+            padding-left: 50px; /* Espacio para el punto y la línea */
+        }
+        .timeline-point {
+            position: absolute;
+            left: 10px; /* Ajustar para centrar en la línea */
+            top: 5px; /* Ajustar verticalmente */
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--color-background);
+            border: 4px solid var(--color-primary);
+            z-index: 1;
+        }
+        .timeline-content {
+            background-color: var(--color-background-alt);
+            padding: var(--spacing-lg); /* Padding interno */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative; /* Para el pseudo-elemento 'arrow' */
+        }
+         /* Flecha opcional apuntando a la línea */
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: -10px; /* Ajustar para que toque el punto */
+            border-style: solid;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--color-background-alt) transparent transparent;
+        }
+        .timeline-date {
+            font-weight: 600;
+            color: var(--color-accent1);
+            margin-bottom: var(--spacing-sm);
+            display: block;
+        }
+
+        /* --- Timeline Horizontal --- */
+        .timeline-horizontal-container {
+            background-color: var(--color-background-alt); /* Fondo distintivo */
+            padding: var(--spacing-lg); /* Padding interno */
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+            overflow-x: auto; /* Habilita scroll horizontal */
+            white-space: nowrap; /* Evita que los items salten de línea */
+             box-shadow: var(--box-shadow);
+            position: relative; /* Para la indicación de scroll */
+            -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+        }
+         /* Indicador visual sutil de scroll (opcional, puede requerir JS para mostrar/ocultar) */
+        .timeline-horizontal-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .timeline-horizontal-container::-webkit-scrollbar-thumb {
+            background: var(--color-accent2);
+            border-radius: 4px;
+        }
+        .timeline-horizontal-container::-webkit-scrollbar-track {
+            background: var(--color-light-grey);
+             border-radius: 4px;
+        }
+
+        .timeline-horizontal-wrapper {
+             display: inline-flex; /* Mantiene los items en línea */
+             padding-bottom: var(--spacing-md); /* Ajustado */
+             position: relative; /* Para la línea */
+             align-items: stretch; /* Para que los items se alineen verticalmente si tienen alturas distintas */
+         }
+          /* Línea horizontal central */
+         .timeline-horizontal-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 50%; /* Ajustar si los items no son simétricos */
+            left: var(--spacing-lg);
+            right: var(--spacing-lg);
+            height: 4px;
+            background-color: var(--color-primary);
+            z-index: 0;
+            border-radius: 2px;
+            transform: translateY(50%);
+         }
+        .timeline-h-item {
+            display: inline-flex; /* Usar flex para controlar mejor el contenido interno */
+            flex-direction: column; /* Apilar título y contenido */
+            vertical-align: top;
+            width: 250px; /* Ancho fijo para cada item */
+            margin-right: var(--spacing-lg);
+            text-align: center;
+            position: relative; /* Para el punto */
+             z-index: 1;
+             white-space: normal; /* Permite que el texto dentro del item fluya */
+             padding-top: var(--spacing-sm); /* CORRECCIÓN: Reducido el padding superior */
+             padding-bottom: var(--spacing-sm); /* Añadir padding inferior para equilibrio */
+        }
+        .timeline-h-item:last-child {
+            margin-right: 0;
+        }
+        /* .timeline-h-point { ... } */ /* CORRECCIÓN: Regla eliminada */
+
+        .timeline-h-content {
+            background-color: var(--color-background);
+            padding: var(--spacing-md); /* Padding interno */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            flex-grow: 1; /* Permite que el contenedor crezca si el texto es largo */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centrar contenido si es corto */
+        }
+        .timeline-h-title {
+            font-weight: 600;
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1rem;
+        }
+
+        /* --- Quiz (V/F o Selección Múltiple) --- */
+        .quiz-container {
+            background-color: var(--color-background-alt);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+            box-shadow: var(--box-shadow);
+        }
+        .quiz-question {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px dashed var(--color-light-grey);
+        }
+        .quiz-question:last-of-type {
+             border-bottom: none;
+             margin-bottom: 0;
+             padding-bottom: 0;
+        }
+        .quiz-question p {
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-primary);
+        }
+        .quiz-options button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            border: 1px solid var(--color-light-grey);
+            border-radius: var(--border-radius);
+            background-color: var(--color-background);
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            font-size: 1rem;
+        }
+        .quiz-options button:hover:not(:disabled) {
+            background-color: #eef;
+            border-color: var(--color-secondary);
+        }
+        .quiz-options button:disabled {
+             cursor: not-allowed;
+             opacity: 0.7;
+        }
+        /* Estilos para feedback inmediato */
+        .quiz-options button.correct {
+            background-color: #d4edda; /* Verde éxito */
+            border-color: var(--color-success);
+            color: #155724;
+            font-weight: bold;
+        }
+        .quiz-options button.incorrect {
+            background-color: #f8d7da; /* Rojo peligro */
+            border-color: var(--color-danger);
+            color: #721c24;
+        }
+        .quiz-feedback {
+            font-size: 0.9em;
+            margin-top: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            display: none; /* Oculto hasta que se responda */
+        }
+        .quiz-feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+        .quiz-feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+        #quiz-result {
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background-color: var(--color-primary);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            border-radius: var(--border-radius);
+            display: none; /* Oculto hasta completar */
+        }
+
+         /* --- Contadores Animados --- */
+        .counters-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            text-align: center;
+        }
+        .counter-item {
+            background-color: var(--color-background-alt);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.1;
+            margin-bottom: var(--spacing-sm);
+             display: block; /* Para asegurar que ocupe espacio */
+             min-height: 1.1em; /* Evita saltos de layout mientras carga */
+        }
+        .counter-label {
+            font-size: 1rem;
+            color: var(--color-accent2);
+             font-weight: 500;
+        }
+
+        /* --- Gráfico Estático (Ejemplo Barras CSS) --- */
+        .chart-container {
+            background-color: var(--color-background-alt);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin: var(--spacing-lg) 0;
+        }
+        .chart-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        .bar-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end; /* Alinea las barras en la base */
+            height: 250px; /* Altura explícita para el contenedor padre! */
+            border-bottom: 2px solid var(--color-accent2);
+             padding: 0 var(--spacing-md);
+             position: relative; /* Añadido por si acaso para contexto */
+        }
+        .bar-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end; /* Alinea contenido (barra+label) abajo */
+            flex: 1; /* Ocupa espacio equitativo */
+            margin: 0 var(--spacing-sm); /* Espacio entre barras */
+             max-width: 60px; /* Ancho máximo de la barra + etiqueta */
+             height: 100%; /* CORRECCIÓN: Hacer que el item ocupe la altura del chart */
+             position: relative; /* Para posicionar la etiqueta si es necesario */
+        }
+        .visual-bar {
+            width: 100%; /* Ocupa el ancho del .bar-item */
+            background-color: var(--color-secondary);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            transition: height 1s ease-out; /* Animación de altura */
+            position: relative; /* Para el span con el valor */
+             /* margin-bottom: var(--spacing-sm); NO es necesario si bar-item es flex column y justify end */
+             height: 0; /* Altura inicial para animación JS */
+        }
+         .visual-bar span { /* Para mostrar el valor */
+             position: absolute;
+             top: -25px; /* Posición encima de la barra */
+             left: 50%;
+             transform: translateX(-50%);
+             font-size: 0.85em;
+             font-weight: 600;
+             color: var(--color-primary);
+             opacity: 0; /* Ocultar inicialmente, mostrar con animación */
+             transition: opacity 0.5s ease-out 0.5s; /* Mostrar después de que la barra crezca */
+         }
+        .bar-label {
+            font-size: 0.85em;
+            color: var(--color-accent2);
+            text-align: center;
+             margin-top: var(--spacing-sm);
+             overflow-wrap: break-word;
+             /* position: absolute; /* Alternativa si se quiere fuera del flujo */
+             /* bottom: -25px; /* Alternativa */
+        }
+        /* Colores alternativos para barras */
+        .bar-item:nth-child(2n) .visual-bar {
+            background-color: var(--color-primary);
+        }
+         .bar-item:nth-child(3n) .visual-bar {
+            background-color: var(--color-accent1);
+         }
+         .bar-item:nth-child(3n) .visual-bar span {
+             color: var(--color-accent1);
+         }
+         /* Mostrar valor cuando la barra tenga altura */
+        .visual-bar.has-height span {
+            opacity: 1;
+        }
+
+
+        /* --- Ejercicio de Reflexión --- */
+        .reflection-exercise {
+            background-color: var(--color-background-alt);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+            box-shadow: var(--box-shadow);
+        }
+        .reflection-exercise h3 {
+            color: var(--color-primary);
+            margin-top: 0; /* Anula el margen superior por defecto de h3 */
+        }
+        .reflection-exercise p {
+             margin-bottom: var(--spacing-md);
+             font-weight: 500;
+        }
+        .reflection-exercise textarea {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 1px solid var(--color-light-grey);
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            min-height: 150px; /* Más que apropiado */
+            resize: vertical; /* Permite redimensionar verticalmente */
+            margin-bottom: var(--spacing-sm); /* Espacio antes de posible botón/nota */
+        }
+        .reflection-exercise textarea:focus {
+            outline: none;
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 0 3px rgba(59, 119, 198, 0.2);
+        }
+        .reflection-exercise small {
+            display: block;
+            color: var(--color-accent2);
+            font-size: 0.85em;
+        }
+
+        /* --- Lista de Verificación --- */
+        .checklist-activity {
+            background-color: var(--color-background-alt);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+            box-shadow: var(--box-shadow);
+        }
+        .checklist-activity h3 {
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        .checklist-item input[type="checkbox"] {
+            margin-right: var(--spacing-md);
+            width: 1.2em;
+            height: 1.2em;
+            accent-color: var(--color-primary); /* Colorea el checkbox */
+             cursor: pointer;
+        }
+        .checklist-item label {
+            cursor: pointer;
+            flex-grow: 1;
+        }
+
+
+        /* --- Imágenes Decorativas --- */
+        .decorative-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+            box-shadow: var(--box-shadow);
+            display: block;
+        }
+
+         /* --- Iconografía SVG --- */
+         .icon {
+             display: inline-block;
+             width: 1em;
+             height: 1em;
+             vertical-align: -0.125em; /* Alineación fina */
+             fill: currentColor; /* Hereda color del texto */
+         }
+
+
+        /* --- Responsividad --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.3rem; }
+
+            main {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+
+            .flip-card-container {
+                grid-template-columns: 1fr; /* Una columna en móvil */
+            }
+
+            .tab-buttons {
+                flex-direction: column; /* Pestañas en columna */
+            }
+            .tab-button {
+                 border-bottom: 1px solid var(--color-light-grey);
+                 border-left: 3px solid transparent; /* Indicador lateral */
+                 border-top-right-radius: 0;
+                 border-bottom-left-radius: var(--border-radius);
+            }
+            .tab-button.active {
+                 border-bottom-color: var(--color-light-grey); /* Quita borde inferior activo */
+                 border-left-color: var(--color-primary); /* Indicador lateral activo */
+                  border-top-left-radius: 0; /* Quita radios superiores */
+                  border-top-right-radius: 0;
+            }
+
+
+            .timeline-vertical-container::before {
+                left: 15px; /* Ajustar línea */
+            }
+            .timeline-item {
+                padding-left: 40px; /* Ajustar padding */
+            }
+            .timeline-point {
+                left: 4px; /* Ajustar punto */
+                width: 20px;
+                height: 20px;
+                 border-width: 3px;
+            }
+            .timeline-content::before {
+                /* Ocultar flecha en móvil si se ve mal */
+                display: none;
+            }
+
+            .timeline-h-item {
+                 width: 200px; /* Reducir ancho */
+            }
+
+            .counters-container {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: var(--spacing-md);
+            }
+            .counter-number {
+                 font-size: 2rem;
+            }
+             .counter-label {
+                 font-size: 0.9rem;
+             }
+
+             .bar-chart {
+                 height: 200px; /* Reducir altura gráfico */
+             }
+             .visual-bar span { /* Ajustar posición valor en móvil */
+                 top: -20px;
+                 font-size: 0.8em;
+             }
+        }
+
+        @media (max-width: 480px) {
+             h1 { font-size: 1.8rem; }
+             h2 { font-size: 1.5rem; }
+             main {
+                padding: var(--spacing-md) var(--spacing-sm);
+             }
+              section, .content-subsection, .callout, .tabs-container, .accordion-item, .timeline-content, .quiz-container, .counters-container, .chart-container, .reflection-exercise, .checklist-activity {
+                  padding: var(--spacing-md); /* Reducir padding interno en móvil */
+              }
+
+             #backToTopBtn {
+                 bottom: var(--spacing-md);
+                 right: var(--spacing-md);
+                 width: 45px;
+                 height: 45px;
+                 font-size: 1.2rem;
+             }
+
+             .timeline-h-item {
+                 width: 180px; /* Reducir más ancho */
+                 margin-right: var(--spacing-md);
+             }
+             .timeline-h-content {
+                 padding: var(--spacing-sm);
+             }
+        }
+
+        /* --- Animaciones Sutiles --- */
+        @keyframes slideInUp {
+          from {
+            transform: translateY(30px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        .animated-entry {
+          animation: slideInUp 0.6s ease-out forwards;
+          opacity: 0; /* Inicialmente oculto hasta que la animación comience */
+        }
+
+        /* Para aplicar animación con JS al hacer scroll */
+        .animate-on-scroll {
+             opacity: 0;
+             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+         }
+         .animate-on-scroll.is-visible {
+            opacity: 1;
+             transform: none; /* O define la transformación inicial y final */
+        }
+         .slide-in-up { transform: translateY(50px); }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="progressBar"></div>
+
+    <main>
+        <header class="animated-entry">
+            <h1>Introducción a la Ley Karin: ¿Por Qué Nos Importa a Todos?</h1>
+        </header>
+
+        <section class="objectives animated-entry" style="animation-delay: 0.1s;">
+            <h2><svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Objetivos de Aprendizaje</h2>
+            <ul>
+                <li>Comprender el propósito fundamental de la Ley N°21.643 (Ley Karin) y su importancia para construir ambientes laborales seguros y respetuosos en Chile.</li>
+                <li>Reconocer su relevancia compartida tanto para los trabajadores como para las organizaciones.</li>
+            </ul>
+        </section>
+
+        <section class="content-subsection animate-on-scroll slide-in-up">
+            <h3><svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg> El Panorama Previo: ¿Por Qué Era Necesaria una Nueva Ley?</h3>
+            <p>Durante años, el marco legal chileno abordó el acoso laboral y sexual principalmente a través de normativas dispersas y con un enfoque que, si bien sentó bases, demostró ser insuficiente para erradicar completamente estas conductas y proteger eficazmente a las víctimas. El acoso laboral, entendido como toda conducta que constituya agresión u hostigamiento reiterados, ejercida por el empleador o por uno o más trabajadores, en contra de otro u otros trabajadores, por cualquier medio, y que tenga como resultado para el o los afectados su menoscabo, maltrato o humillación, o bien que amenace o perjudique su situación laboral o sus oportunidades en el empleo, ha sido una realidad dolorosa en muchos entornos de trabajo.</p>
+            <p>De manera similar, el acoso sexual, definido como las solicitudes de carácter sexual, que no son consentidas por quien las recibe y que amenazan o perjudican su situación laboral o sus oportunidades en el empleo, también presentaba desafíos en su prevención y sanción efectiva. Las cifras, aunque a veces subrepresentadas por el miedo a denunciar, mostraban una problemática persistente.</p>
+
+            <div class="callout">
+                <strong>Una Realidad Preocupante:</strong> Según datos previos a la nueva ley, una proporción significativa de trabajadores en Chile reportaba haber experimentado o presenciado situaciones de acoso o maltrato en el trabajo. Por ejemplo, la Encuesta Laboral (ENCLA) de la Dirección del Trabajo ha recogido históricamente información sobre riesgos psicosociales, reflejando la necesidad de fortalecer los mecanismos de protección. Aunque las cifras varían anualmente, diversos estudios han apuntado a que más del 10% de los trabajadores podrían haber enfrentado situaciones de acoso laboral en algún momento. <em>(Nota: Cifra indicativa basada en tendencias históricas, buscar el dato más reciente y específico de fuentes oficiales como DT o SUSESO para mayor precisión).</em>
+                <span class="source">Basado en tendencias observadas en encuestas laborales chilenas (Ej: ENCLA, DT).</span>
+            </div>
+
+             <img src="https://i.postimg.cc/PxFBrFNc/14331-min.jpg" alt="Imagen decorativa representando un ambiente de trabajo en Chile, con enfoque en el respeto." class="decorative-image">
+
+
+            <p>Las limitaciones de la normativa anterior incluían, en ocasiones, procedimientos de investigación internos poco claros o expeditos, falta de protocolos robustos de prevención y una cultura organizacional que no siempre fomentaba la denuncia segura y la tolerancia cero hacia estas conductas. La necesidad de un marco legal más integral, preventivo y protector se hizo evidente, impulsando la creación de una legislación específica que abordara de manera más contundente el acoso y la violencia en el mundo del trabajo: la Ley Karin.</p>
+            <h4>Texto Explicativo Adicional (Profundizando el Contexto)</h4>
+            <p>El contexto internacional también jugó un rol importante. La ratificación por parte de Chile del Convenio 190 de la Organización Internacional del Trabajo (OIT) sobre la eliminación de la violencia y el acoso en el mundo del trabajo, marcó un hito y un compromiso a nivel país para adoptar medidas legislativas y políticas públicas acordes con estándares internacionales. Este convenio reconoce el derecho de toda persona a un mundo del trabajo libre de violencia y acoso, incluidos la violencia y el acoso por razón de género, y subraya la responsabilidad de los Estados miembros de adoptar un enfoque inclusivo, integrado y que tenga en cuenta las consideraciones de género para prevenir y eliminar estas problemáticas.</p>
+            <p>La legislación preexistente en Chile, contenida principalmente en el Código del Trabajo, establecía la obligación del empleador de proteger eficazmente la vida y salud de los trabajadores y definía el acoso laboral y sexual. Sin embargo, la aplicación práctica enfrentaba obstáculos. Las investigaciones internas, si bien obligatorias en ciertos casos, no siempre contaban con la debida confidencialidad, imparcialidad o celeridad. Además, el enfoque era a menudo más reactivo (sanción post-hecho) que proactivo (prevención sistemática).</p>
+            <p>La experiencia de víctimas y expertos evidenciaba que muchas situaciones quedaban sin denunciar por temor a represalias, por la complejidad del proceso o por la percepción de impunidad. La falta de protocolos estandarizados y obligatorios de prevención en todas las empresas, independientemente de su tamaño (más allá del Reglamento Interno en empresas más grandes), dejaba vacíos importantes. Se necesitaba una ley que no solo definiera y sancionara, sino que obligara a la acción preventiva, que estableciera procedimientos claros y garantistas, y que promoviera una cultura de respeto mutuo como pilar fundamental de las relaciones laborales. La Ley Karin surge como respuesta directa a estas necesidades acumuladas y a la creciente conciencia social sobre la urgencia de garantizar entornos laborales dignos y seguros para todos y todas.</p>
+
+        </section>
+
+        <section class="content-subsection animate-on-scroll slide-in-up">
+            <h3><svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg> Descifrando la Ley Karin (N°21.643): ¿Qué Es Exactamente?</h3>
+            <p>La <strong>Ley N°21.643</strong>, conocida popularmente como "Ley Karin", es una modificación significativa al Código del Trabajo chileno y a otros cuerpos legales, promulgada con el objetivo primordial de <strong>prevenir, investigar y sancionar el acoso laboral, sexual y la violencia en el trabajo</strong>. Su nombre rinde homenaje a Karin Salgado, técnico en enfermería que lamentablemente se quitó la vida en 2019, presuntamente debido al acoso laboral que sufría en su lugar de trabajo, visibilizando la urgencia de fortalecer la legislación.</p>
+            <p>Esta ley no es simplemente una declaración de intenciones; establece obligaciones concretas para empleadores y mecanismos más robustos para proteger a los trabajadores. Entró en vigencia de forma plena el **1 de agosto de 2024**, marcando un antes y un después en la forma en que se abordan estas problemáticas en el ámbito laboral chileno.</p>
+
+            <div class="callout callout-objective">
+                <strong>Propósito Fundamental:</strong> El corazón de la Ley Karin es <strong>construir y garantizar ambientes laborales seguros, dignos y respetuosos</strong> para todas las personas en Chile, libres de acoso y violencia, promoviendo una cultura de tolerancia cero frente a estas conductas.
+            </div>
+
+            <h4>Video Introductorio</h4>
+            <p>Para una visión general sobre la Ley Karin, te invitamos a ver el siguiente video:</p>
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/1073372273?h=1a36a07e5e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="LEY KARIN - ¿Qué es el acoso laboral y sexual?"></iframe>
+                </div>
+             <p><small>Video cortesía de Vimeo (ID: 853121504). Contenido externo puede tener sus propios términos.</small></p>
+
+            <h4>Texto Explicativo Adicional (Detalles Clave)</h4>
+            <p>La Ley Karin introduce varias modificaciones clave. Amplía el concepto de acoso laboral, incluyendo ahora explícitamente la violencia en el trabajo ejercida por terceros ajenos a la relación laboral (clientes, proveedores, usuarios) cuando el empleador no tome medidas adecuadas para proteger al trabajador. Esto es particularmente relevante para sectores de atención al público.</p>
+            <p>Además, refuerza la obligación de los empleadores de contar con un **Protocolo de Prevención del Acoso Sexual, Laboral y Violencia en el Trabajo**. Este protocolo ya no es solo una recomendación o parte del reglamento interno para algunas empresas, sino una exigencia transversal con contenidos mínimos definidos por ley y que debe ser elaborado con participación de los trabajadores o sus representantes (como comités paritarios o sindicatos). Este protocolo debe incluir medidas de información, capacitación, evaluación de riesgos y procedimientos claros de investigación y sanción.</p>
+            <p>Se establecen plazos más estrictos para las investigaciones internas (generalmente no más de 30 días) y se fortalecen las garantías para los denunciantes y testigos, protegiéndolos contra represalias. La ley también especifica las posibles sanciones para los acosadores y las responsabilidades del empleador en caso de incumplimiento de sus obligaciones preventivas o de investigación. En resumen, la Ley Karin busca pasar de un modelo principalmente reactivo a uno fuertemente preventivo y garantista, poniendo el énfasis en la creación de una cultura organizacional de respeto y seguridad.</p>
+        </section>
+
+         <section class="animate-on-scroll slide-in-up">
+            <h3><svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg> Pilares Fundamentales de la Ley</h3>
+            <p>La Ley Karin se sustenta en tres pilares esenciales que buscan abordar el problema del acoso y la violencia laboral de manera integral:</p>
+            <div class="flip-card-container">
+                <div class="flip-card" tabindex="0" aria-label="Tarjeta sobre Prevención. Haz clic o presiona Enter para girar.">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <h4>1. Prevención Activa</h4>
+                            <p><small>(Gira para detalles)</small></p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Prevención Activa</h4>
+                            <p>La ley exige a todos los empleadores implementar un <strong>Protocolo de Prevención</strong> obligatorio. Esto incluye identificar riesgos psicosociales, informar y capacitar a los trabajadores sobre qué constituye acoso y violencia, y promover activamente una cultura de respeto. El foco está en evitar que las conductas ocurran.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" tabindex="0" aria-label="Tarjeta sobre Investigación. Haz clic o presiona Enter para girar.">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                           <svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+                            <h4>2. Investigación Eficaz</h4>
+                             <p><small>(Gira para detalles)</small></p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Investigación Eficaz</h4>
+                            <p>Establece procedimientos de investigación <strong>claros, confidenciales y expeditos</strong> para las denuncias. Define plazos (máx. 30 días regla general), medidas de protección para denunciantes/testigos y la obligación de adoptar medidas correctivas si se comprueba el acoso o violencia.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" tabindex="0" aria-label="Tarjeta sobre Sanción y Protección. Haz clic o presiona Enter para girar.">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2V7a5 5 0 00-5-5zm0 10a1 1 0 01-1-1V9a1 1 0 112 0v2a1 1 0 01-1 1z"></path></svg>
+                            <h4>3. Sanción y Protección</h4>
+                             <p><small>(Gira para detalles)</small></p>
+                        </div>
+                        <div class="flip-card-back">
+                           <h4>Sanción y Protección</h4>
+                            <p>Refuerza las sanciones para quienes cometan acoso o violencia, y también para empleadores que no cumplan sus deberes de prevención e investigación. Asegura la <strong>protección contra represalias</strong> (garantía de indemnidad) para quienes denuncien o participen en la investigación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="animate-on-scroll slide-in-up">
+            <h3><svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg> Derechos y Deberes: Impacto en Trabajadores y Organizaciones</h3>
+            <div class="tabs-container">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="tab1">Nuevos Derechos (Trabajadores)</button>
+                    <button class="tab-button" data-tab="tab2">Obligaciones (Empleadores)</button>
+                    <button class="tab-button" data-tab="tab3">Rol de Sindicatos / Comités</button>
+                    <button class="tab-button" data-tab="tab4">Conductas Sancionadas</button>
+                </div>
+                <div id="tab1" class="tab-content active">
+                    <h4>Nuevos Derechos y Refuerzos para Trabajadores/as</h4>
+                    <p>La Ley Karin fortalece significativamente tus derechos en el lugar de trabajo:</p>
+                    <ul>
+                        <li><strong>Derecho a un ambiente laboral libre de acoso y violencia:</strong> Se refuerza la obligación del empleador de garantizar activamente un entorno seguro y respetuoso.</li>
+                        <li><strong>Derecho a denunciar de forma segura:</strong> Procedimientos más claros y confidenciales para presentar denuncias por acoso o violencia.</li>
+                        <li><strong>Protección contra represalias (Indemnidad):</strong> La ley prohíbe explícitamente cualquier tipo de sanción o perjuicio por haber denunciado o testificado. Si esto ocurre, se puede recurrir a la justicia.</li>
+                        <li><strong>Derecho a ser informado/a y capacitado/a:</strong> El empleador debe difundir el protocolo de prevención y realizar capacitaciones sobre el tema.</li>
+                        <li><strong>Acceso a procedimientos de investigación justos y rápidos:</strong> Tienes derecho a que tu denuncia sea investigada de manera imparcial y dentro de plazos definidos (generalmente 30 días).</li>
+                         <li><strong>Posibilidad de solicitar medidas de resguardo:</strong> Durante la investigación, se pueden solicitar medidas para proteger tu integridad física o psíquica.</li>
+                    </ul>
+                </div>
+                <div id="tab2" class="tab-content">
+                    <h4>Nuevas Obligaciones para Empleadores/as</h4>
+                     <p>La ley impone deberes claros y exigibles a las organizaciones:</p>
+                    <ul>
+                        <li><strong>Implementar un Protocolo de Prevención:</strong> Obligatorio para toda empresa, con contenidos mínimos sobre diagnóstico, información, capacitación, investigación y sanción. Debe ser elaborado con participación de trabajadores/representantes.</li>
+                        <li><strong>Investigar TODA denuncia:</strong> Deben seguir el procedimiento establecido en su protocolo (o el supletorio legal) de forma diligente, confidencial y oportuna.</li>
+                         <li><strong>Adoptar medidas correctivas y sanciones:</strong> Si se acredita el acoso o violencia, deben tomar medidas para detenerlo y sancionar al responsable según la gravedad.</li>
+                         <li><strong>Garantizar la confidencialidad y protección:</strong> Asegurar que denunciantes y testigos no sufran represalias.</li>
+                         <li><strong>Gestionar riesgos psicosociales:</strong> La prevención del acoso se integra a la gestión general de riesgos laborales.</li>
+                         <li><strong>Responder por violencia de terceros:</strong> Si no adoptan medidas de resguardo razonables frente a violencia ejercida por clientes/usuarios, pueden ser responsables.</li>
+                    </ul>
+                </div>
+                <div id="tab3" class="tab-content">
+                    <h4>Rol Clave de Sindicatos y Comités Paritarios</h4>
+                    <p>Estas instancias tienen un papel fundamental en la implementación y vigilancia de la Ley Karin:</p>
+                    <ul>
+                        <li><strong>Participación en la elaboración del Protocolo:</strong> La ley fomenta que el protocolo de prevención sea co-construido con los representantes de los trabajadores.</li>
+                        <li><strong>Canal de denuncia y apoyo:</strong> Pueden actuar como un canal seguro para que los trabajadores presenten denuncias y reciban orientación.</li>
+                         <li><strong>Vigilancia del cumplimiento:</strong> Tienen la facultad de observar y exigir al empleador el cumplimiento de las normas sobre prevención y sanción del acoso.</li>
+                         <li><strong>Promoción de la cultura de respeto:</strong> Pueden colaborar activamente en campañas de sensibilización y capacitación.</li>
+                         <li><strong>Representación en investigaciones:</strong> Dependiendo del procedimiento, pueden acompañar o representar a los trabajadores afectados.</li>
+                    </ul>
+                     <p>Su involucramiento activo es crucial para que la ley tenga un impacto real en la cultura organizacional.</p>
+                </div>
+                 <div id="tab4" class="tab-content">
+                    <h4>¿Qué Conductas se Consideran Acoso o Violencia según la Ley?</h4>
+                    <p>La Ley Karin (modificando el Código del Trabajo) aborda principalmente:</p>
+                    <ul>
+                        <li><strong>Acoso Laboral:</strong> "Toda conducta que constituya agresión u hostigamiento reiterados, ejercida por el empleador o por uno o más trabajadores, en contra de otro u otros trabajadores, por cualquier medio, y que tenga como resultado para el o los afectados su menoscabo, maltrato o humillación, o bien que amenace o perjudique su situación laboral o sus oportunidades en el empleo." Incluye conductas verbales, psicológicas, físicas. La reiteración es clave.</li>
+                        <li><strong>Acoso Sexual:</strong> "El que realice, en forma indebida, por cualquier medio, requerimientos de carácter sexual, no consentidos por quien los recibe y que amenacen o perjudiquen su situación laboral o sus oportunidades en el empleo." No requiere reiteración, basta un acto.</li>
+                        <li><strong>Violencia en el Trabajo:</strong> Se incorpora explícitamente la obligación de prevenir y gestionar la violencia, incluyendo aquella ejercida por terceros (clientes, usuarios, etc.) ajenos a la relación laboral directa, si el empleador no toma medidas de resguardo. Esto puede incluir agresiones físicas, verbales, amenazas, etc.</li>
+                    </ul>
+                    <p>Es importante entender que la evaluación de si una conducta específica califica como acoso dependerá del análisis caso a caso, considerando el contexto, la frecuencia, la intensidad y el impacto en la víctima.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="animate-on-scroll slide-in-up">
+             <h3><svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg> Hitos y Proceso: Desde la Denuncia a la Solución</h3>
+
+            <h4>Hitos Relevantes en la Protección Laboral Chilena</h4>
+            <div class="timeline-vertical-container">
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">1931 (y reformas)</span>
+                        <p><strong>Código del Trabajo:</strong> Establece bases de la relación laboral, incluyendo deberes generales de protección del empleador (seguridad y salud).</p>
+                    </div>
+                </div>
+                 <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2002 (Ley N°19.759)</span>
+                        <p><strong>Reforma Laboral:</strong> Introduce primeras menciones explícitas sobre acoso sexual en el Código del Trabajo, aunque con alcance limitado.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2012 (Ley N°20.607)</span>
+                        <p><strong>Tipificación del Acoso Laboral:</strong> Se define formalmente el acoso laboral (mobbing) en el Código del Trabajo, estableciendo procedimientos básicos de denuncia e investigación interna.</p>
+                    </div>
+                </div>
+                 <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023 (Ratificación)</span>
+                        <p><strong>Convenio 190 OIT:</strong> Chile ratifica el convenio sobre eliminación de violencia y acoso en el mundo del trabajo, comprometiéndose a alinear su legislación.</p>
+                    </div>
+                </div>
+                 <div class="timeline-item">
+                    <div class="timeline-point" style="border-color: var(--color-accent1);"></div> <div class="timeline-content">
+                        <span class="timeline-date">15 Enero 2024 (Promulgación) / 1 Agosto 2024 (Vigencia)</span>
+                        <p><strong>Ley N°21.643 (Ley Karin):</strong> Modifica el Código del Trabajo para prevenir, investigar y sancionar el acoso laboral, sexual y la violencia, con un enfoque preventivo y garantista más robusto.</p>
+                    </div>
+                </div>
+            </div>
+
+             <img src="https://i.postimg.cc/HsQb8Xvx/shutterstock_2264971717-min.jpg" alt="Imagen decorativa representando un equipo de trabajo diverso y colaborativo en Chile." class="decorative-image">
+
+
+            <h4>Flujo Simplificado de una Denuncia bajo Ley Karin</h4>
+             <p>El proceso exacto puede variar según el protocolo de cada empresa, pero generalmente sigue estos pasos:</p>
+            <div class="timeline-horizontal-container">
+                <div class="timeline-horizontal-wrapper">
+                    <div class="timeline-h-item">
+                        <div class="timeline-h-content">
+                            <h5 class="timeline-h-title">1. Denuncia</h5>
+                            <p>El trabajador/a presenta la denuncia (verbal o escrita, confidencial) a través de los canales definidos en el protocolo (RRHH, jefatura, comité, etc.).</p>
+                        </div>
+                    </div>
+                    <div class="timeline-h-item">
+                        <div class="timeline-h-content">
+                            <h5 class="timeline-h-title">2. Adopción de Medidas</h5>
+                            <p>El empleador evalúa adoptar medidas de resguardo inmediatas si son necesarias para proteger al denunciante.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-h-item">
+                         <div class="timeline-h-content">
+                             <h5 class="timeline-h-title">3. Investigación</h5>
+                             <p>Se inicia la investigación interna (plazo máx. 30 días gral.), garantizando confidencialidad y escuchando a las partes y testigos.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-h-item">
+                         <div class="timeline-h-content">
+                             <h5 class="timeline-h-title">4. Informe</h5>
+                             <p>Se elabora un informe con las conclusiones de la investigación.</p>
+                         </div>
+                    </div>
+                     <div class="timeline-h-item">
+                         <div class="timeline-h-content">
+                             <h5 class="timeline-h-title">5. Medidas / Sanciones</h5>
+                             <p>Si se acredita el acoso/violencia, el empleador aplica medidas correctivas y/o sanciones según la gravedad (amonestación, multa, despido).</p>
+                         </div>
+                    </div>
+                    <div class="timeline-h-item">
+                         <div class="timeline-h-content">
+                             <h5 class="timeline-h-title">6. Notificación / Cierre</h5>
+                             <p>Se notifica a las partes involucradas y se cierra el proceso. Se puede recurrir a la Inspección del Trabajo o Tribunales si hay disconformidad.</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="animate-on-scroll slide-in-up">
+             <h3><svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path></svg> Midiendo el Impacto y la Cultura del Respeto</h3>
+            <p>La efectividad de la Ley Karin se medirá no solo en las sanciones, sino en su capacidad para transformar la cultura organizacional. Algunos indicadores clave y datos relevantes:</p>
+
+            <div class="counters-container">
+                <div class="counter-item">
+                    <span class="counter-number" data-target="100">0</span>%
+                    <span class="counter-label">Empresas Obligadas a tener Protocolo de Prevención</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" data-target="30">0</span>
+                    <span class="counter-label">Días (máx. general) para Investigación Interna</span>
+                </div>
+                 <div class="counter-item">
+                     <span class="counter-number" data-target="1">0</span>
+                     <span class="counter-label">Convenio OIT (N°190) Ratificado por Chile</span>
+                 </div>
+            </div>
+             <small>Nota: Las cifras de los contadores son representativas de aspectos clave de la ley y compromisos internacionales. La cifra de días puede tener excepciones específicas.</small>
+
+            <h4>Tipos de Conductas Abordadas (Representación Conceptual)</h4>
+            <p>La ley busca abordar un espectro amplio de conductas. Un gráfico conceptual puede ilustrar áreas clave:</p>
+            <div class="chart-container">
+                <h4 class="chart-title">Áreas de Enfoque de la Ley Karin</h4>
+                 <div class="bar-chart" id="barChartExample">
+                     <div class="bar-item">
+                        <div class="visual-bar" data-value="85"><span>85%</span></div>
+                        <span class="bar-label">Acoso Laboral (Hostigamiento, Humillación)</span>
+                    </div>
+                    <div class="bar-item">
+                        <div class="visual-bar" data-value="70"><span>70%</span></div>
+                        <span class="bar-label">Acoso Sexual (Requerimientos Indebidos)</span>
+                    </div>
+                    <div class="bar-item">
+                         <div class="visual-bar" data-value="60"><span>60%</span></div>
+                         <span class="bar-label">Violencia Laboral (Agresiones, Amenazas)</span>
+                     </div>
+                      <div class="bar-item">
+                         <div class="visual-bar" data-value="75"><span>75%</span></div>
+                         <span class="bar-label">Violencia de Terceros (Clientes, Usuarios)</span>
+                     </div>
+                 </div>
+                  <small>Nota: Los porcentajes son ilustrativos para representar la importancia relativa de cada área cubierta por la ley, no son estadísticas precisas de prevalencia.</small>
+            </div>
+        </section>
+
+
+         <section class="animate-on-scroll slide-in-up">
+            <h3><svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg> Actividades de Comprensión y Reflexión</h3>
+
+            <div class="quiz-container content-subsection">
+                <h4>Comprueba tu Comprensión</h4>
+                <p>Responde las siguientes preguntas para afianzar los conceptos clave:</p>
+                <div id="quiz">
+                    <div class="quiz-question" data-question="1">
+                        <p>1. La Ley Karin (N°21.643) entró en plena vigencia en Chile el año 2023.</p>
+                        <div class="quiz-options">
+                            <button data-correct="false">Verdadero</button>
+                            <button data-correct="true">Falso</button>
+                        </div>
+                        <div class="quiz-feedback"></div>
+                    </div>
+                    <div class="quiz-question" data-question="2">
+                        <p>2. ¿Cuál es el objetivo principal de la Ley Karin?</p>
+                        <div class="quiz-options">
+                            <button data-correct="false">Aumentar los sueldos mínimos.</button>
+                            <button data-correct="true">Prevenir, investigar y sancionar el acoso y la violencia laboral.</button>
+                            <button data-correct="false">Regular las vacaciones anuales.</button>
+                            <button data-correct="false">Establecer normas de teletrabajo.</button>
+                        </div>
+                         <div class="quiz-feedback"></div>
+                    </div>
+                    <div class="quiz-question" data-question="3">
+                        <p>3. El "Protocolo de Prevención" es obligatorio solo para empresas con más de 100 trabajadores.</p>
+                        <div class="quiz-options">
+                            <button data-correct="false">Verdadero</button>
+                            <button data-correct="true">Falso</button>
+                        </div>
+                        <div class="quiz-feedback"></div>
+                    </div>
+                     <div class="quiz-question" data-question="4">
+                        <p>4. La Ley Karin protege a los denunciantes de acoso contra posibles represalias.</p>
+                        <div class="quiz-options">
+                            <button data-correct="true">Verdadero</button>
+                            <button data-correct="false">Falso</button>
+                        </div>
+                         <div class="quiz-feedback"></div>
+                    </div>
+                    <div class="quiz-question" data-question="5">
+                        <p>5. ¿Qué plazo general máximo se establece para la investigación interna de una denuncia?</p>
+                        <div class="quiz-options">
+                            <button data-correct="false">10 días</button>
+                            <button data-correct="true">30 días</button>
+                             <button data-correct="false">60 días</button>
+                             <button data-correct="false">No hay plazo definido</button>
+                        </div>
+                        <div class="quiz-feedback"></div>
+                    </div>
+                </div>
+                <div id="quiz-result"></div>
+            </div>
+
+            <div class="reflection-exercise content-subsection">
+                <h3>Reflexión Personal</h3>
+                <p>Tómate un momento para pensar: ¿Qué significa para ti un "ambiente laboral respetuoso" y cómo crees que la Ley Karin puede contribuir a ello en tu propio lugar de trabajo o en general?</p>
+                <textarea id="reflectionText" rows="6" placeholder="Escribe tus ideas, experiencias o expectativas aquí... (Mínimo 150 caracteres para considerarlo 'completo' en un escenario real)"></textarea>
+                <small>Tu reflexión es personal y te ayuda a conectar el tema con tu realidad. No se guardará ni enviará.</small>
+                <p id="reflectionFeedback" style="font-size: 0.9em; margin-top: 8px; color: var(--color-success); display: none;">¡Gracias por reflexionar sobre este importante tema!</p>
+            </div>
+
+            <div class="checklist-activity content-subsection">
+                 <h3>Acciones para Fomentar el Respeto</h3>
+                 <p>Marca las acciones que consideras más importantes o aplicables para construir un ambiente laboral más respetuoso, inspirado en los principios de la Ley Karin:</p>
+                 <div class="checklist-item">
+                     <input type="checkbox" id="check1" name="checklist_action">
+                     <label for="check1">Fomentar la comunicación abierta y respetuosa entre colegas y con superiores.</label>
+                 </div>
+                 <div class="checklist-item">
+                     <input type="checkbox" id="check2" name="checklist_action">
+                     <label for="check2">Establecer y comunicar claramente una política de tolerancia cero al acoso y la violencia.</label>
+                 </div>
+                 <div class="checklist-item">
+                     <input type="checkbox" id="check3" name="checklist_action">
+                     <label for="check3">Realizar capacitaciones regulares sobre qué es el acoso, cómo prevenirlo y cómo denunciar.</label>
+                 </div>
+                 <div class="checklist-item">
+                     <input type="checkbox" id="check4" name="checklist_action">
+                     <label for="check4">Asegurar que los procedimientos de denuncia sean confidenciales y seguros.</label>
+                 </div>
+                  <div class="checklist-item">
+                     <input type="checkbox" id="check5" name="checklist_action">
+                     <label for="check5">Promover la diversidad, la inclusión y el trato equitativo para todos.</label>
+                 </div>
+                  <div class="checklist-item">
+                     <input type="checkbox" id="check6" name="checklist_action">
+                     <label for="check6">Dar ejemplo desde los liderazgos con conductas respetuosas.</label>
+                 </div>
+            </div>
+        </section>
+
+
+        <section class="conclusion animate-on-scroll slide-in-up">
+            <h2><svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Conclusión: Un Compromiso Compartido</h2>
+            <p>La Ley Karin (N°21.643) representa un avance crucial en la protección de los derechos fundamentales de los trabajadores y trabajadoras en Chile. Su enfoque en la <strong>prevención</strong>, junto con mecanismos más robustos de <strong>investigación y sanción</strong>, busca erradicar el acoso laboral, sexual y la violencia en los entornos de trabajo.</p>
+            <p>Entender esta ley no es solo una obligación legal para las empresas, sino una responsabilidad compartida. Tanto empleadores como trabajadores tienen un rol activo en la construcción de una cultura organizacional basada en el respeto mutuo, la dignidad y la seguridad. Informarse, participar en las instancias de prevención y denunciar las conductas indebidas son pasos fundamentales.</p>
+            <p>Esta introducción te ha brindado una visión general del propósito y alcance de la Ley Karin. En las próximas secciones, profundizaremos en aspectos específicos como los detalles del protocolo de prevención, los procedimientos de denuncia y las implicancias prácticas para diferentes roles dentro de la organización.</p>
+            <p><strong>¡Sigamos aprendiendo juntos para construir mejores lugares de trabajo para todos!</strong></p>
+        </section>
+
+    </main>
+
+    <button id="backToTopBtn" title="Volver arriba">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14l-6-6z"></path>
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Barra de Progreso ---
+            const progressBar = document.getElementById('progressBar');
+            function updateProgressBar() {
+                const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollCurrent = document.documentElement.scrollTop || document.body.scrollTop;
+                // Evitar división por cero si el contenido es menor a la ventana
+                const scrollPercent = scrollTotal > 0 ? (scrollCurrent / scrollTotal) * 100 : 0;
+                progressBar.style.width = scrollPercent + '%';
+            }
+            window.addEventListener('scroll', updateProgressBar);
+            updateProgressBar(); // Ejecutar al cargar por si la página no tiene scroll inicial
+
+            // --- Botón Volver Arriba ---
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            window.addEventListener('scroll', () => {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    backToTopBtn.style.display = 'block';
+                } else {
+                    backToTopBtn.style.display = 'none';
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- Tarjetas Giratorias ---
+            const flipCards = document.querySelectorAll('.flip-card');
+            flipCards.forEach(card => {
+                const flipCardInner = card.querySelector('.flip-card-inner'); // Referencia al inner
+                const flipHandler = () => {
+                     // Toggle directo en inner puede ser problemático si el evento se dispara en hijos
+                     // Es más robusto hacer toggle en el contenedor '.flip-card'
+                     card.classList.toggle('flipped');
+                 };
+
+                card.addEventListener('click', flipHandler);
+                card.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        flipHandler();
+                    }
+                });
+            });
+
+             // --- Pestañas Interactivas ---
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const tabsContainer = document.querySelector('.tabs-container'); // Referencia al contenedor
+
+            if (tabsContainer && tabButtons.length > 0 && tabContents.length > 0) { // Verificar existencia
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const targetTab = button.getAttribute('data-tab');
+                        const targetContent = document.getElementById(targetTab); // Obtener el contenido específico
+
+                        if (!targetContent) return; // Salir si no se encuentra el contenido
+
+                        // Quitar 'active' de todos los botones y contenidos dentro de ESTE contenedor
+                        tabsContainer.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                        tabsContainer.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+                        // Añadir 'active' al botón y contenido clickeados
+                        button.classList.add('active');
+                        targetContent.classList.add('active');
+                    });
+                });
+                 // Asegurar que el primer tab esté activo por defecto si ninguno lo está explícitamente
+                 const anyActiveButton = tabsContainer.querySelector('.tab-button.active');
+                 if (!anyActiveButton && tabButtons.length > 0) {
+                     tabButtons[0].classList.add('active');
+                     const firstTabId = tabButtons[0].getAttribute('data-tab');
+                     const firstTabContent = document.getElementById(firstTabId);
+                     if (firstTabContent) {
+                         firstTabContent.classList.add('active');
+                     }
+                 }
+             }
+
+
+            // --- Acordeones Expandibles ---
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+                let icon = item.querySelector('.accordion-icon'); // Usar let por si lo creamos
+
+                 // Añadir/quitar el icono inicial si no existe
+                 if (header && !icon) { // Verificar que header existe
+                     icon = document.createElement('span');
+                     icon.classList.add('accordion-icon');
+                     icon.textContent = '+';
+                     header.appendChild(icon);
+                 }
+
+
+                if (header && content && icon) { // Verificar que todos existen
+                    header.addEventListener('click', () => {
+                        const isActive = item.classList.contains('active');
+
+                        item.classList.toggle('active');
+                        if (item.classList.contains('active')) {
+                            // Primero establecer visibilidad y luego altura para calcular scrollHeight correctamente
+                             content.style.display = 'block'; // Asegura que sea visible para cálculo
+                            content.style.maxHeight = content.scrollHeight + "px";
+                            content.style.paddingTop = 'var(--spacing-lg)';
+                            content.style.paddingBottom = 'var(--spacing-lg)';
+                            icon.textContent = '-';
+                        } else {
+                            content.style.maxHeight = null;
+                            // Retrasar la eliminación del padding y display none
+                             content.style.removeProperty('padding-top'); // Usar removeProperty es más limpio
+                             content.style.removeProperty('padding-bottom');
+                             // Esperar a que termine la transición de max-height antes de ocultar
+                            setTimeout(() => {
+                                if (!item.classList.contains('active')) { // Doble chequeo
+                                     content.style.display = 'none';
+                                }
+                            }, 400); // Duración de la transición
+                            icon.textContent = '+';
+                        }
+                    });
+
+                     // Asegurar estado inicial correcto (si no está activo, ocultar contenido)
+                     if (!item.classList.contains('active')) {
+                         content.style.maxHeight = null;
+                         content.style.display = 'none';
+                         content.style.paddingTop = '0';
+                         content.style.paddingBottom = '0';
+                         icon.textContent = '+';
+                     } else {
+                          // Si está activo por defecto, calcular altura inicial
+                          content.style.display = 'block';
+                          content.style.maxHeight = content.scrollHeight + "px";
+                          content.style.paddingTop = 'var(--spacing-lg)';
+                          content.style.paddingBottom = 'var(--spacing-lg)';
+                          icon.textContent = '-';
+                     }
+                 }
+            });
+
+
+            // --- Quiz Interactivo con Feedback Inmediato y Resumen Final ---
+            const quizContainer = document.getElementById('quiz');
+            const resultContainer = document.getElementById('quiz-result');
+
+             if (quizContainer && resultContainer) { // Verificar existencia
+                 const questions = quizContainer.querySelectorAll('.quiz-question');
+                 let score = 0;
+                 let questionsAnswered = 0;
+
+                questions.forEach((question, index) => {
+                    const options = question.querySelectorAll('.quiz-options button');
+                    const feedbackElement = question.querySelector('.quiz-feedback');
+
+                    if (!feedbackElement) return; // Saltar si falta el elemento de feedback
+
+                    options.forEach(button => {
+                        button.addEventListener('click', () => {
+                            if (question.classList.contains('answered')) return;
+                            question.classList.add('answered');
+                            questionsAnswered++;
+
+                            const isCorrect = button.getAttribute('data-correct') === 'true';
+
+                            options.forEach(btn => btn.disabled = true);
+
+                            if (isCorrect) {
+                                score++;
+                                button.classList.add('correct');
+                                feedbackElement.textContent = '¡Correcto!';
+                                feedbackElement.className = 'quiz-feedback correct';
+                            } else {
+                                button.classList.add('incorrect');
+                                feedbackElement.textContent = 'Incorrecto.';
+                                feedbackElement.className = 'quiz-feedback incorrect';
+                                options.forEach(opt => {
+                                    if (opt.getAttribute('data-correct') === 'true') {
+                                        opt.classList.add('correct');
+                                    }
+                                });
+                                if (index === 0) feedbackElement.textContent += ' La Ley Karin entró en plena vigencia el 1 de agosto de 2024.';
+                                if (index === 2) feedbackElement.textContent += ' El protocolo es obligatorio para TODAS las empresas.';
+                            }
+
+                            if (questionsAnswered === questions.length) {
+                                showQuizResult();
+                            }
+                        });
+                    });
+                });
+
+                function showQuizResult() {
+                    const percentage = Math.round((score / questions.length) * 100);
+                    resultContainer.innerHTML = `Resultado Final: Respondiste correctamente ${score} de ${questions.length} preguntas (${percentage}%).`;
+                    resultContainer.style.display = 'block';
+                    resultContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
+
+            // --- Contadores Animados con Reinicio al Hover ---
+             const counterNumbers = document.querySelectorAll('.counter-number');
+             const animationDurationCounter = 2000; // 2 segundos
+             const frameDurationCounter = 1000 / 60; // 60fps
+
+             const animateCounter = (element, target) => {
+                // Limpiar intervalo y listener de hover anteriores si existen
+                 const counterItem = element.closest('.counter-item');
+                 if (counterItem.counterIntervalId) {
+                     clearInterval(counterItem.counterIntervalId);
+                 }
+                 if (counterItem.mouseEnterListener) {
+                     counterItem.removeEventListener('mouseenter', counterItem.mouseEnterListener);
+                 }
+
+
+                 let frame = 0;
+                 const totalFrames = Math.round(animationDurationCounter / frameDurationCounter);
+                 // Asegurar que el incremento no sea cero si el target es bajo
+                 const increment = target === 0 ? 0 : target / totalFrames;
+                 let currentNumber = 0;
+                 let hasFinished = false;
+                 element.textContent = '0'; // Reset visual inmediato
+
+
+                 const intervalId = setInterval(() => {
+                     frame++;
+                     currentNumber += increment;
+
+                     if (frame >= totalFrames) {
+                         clearInterval(intervalId);
+                         currentNumber = target; // Asegurar valor final exacto
+                         hasFinished = true;
+                         counterItem.counterIntervalId = null; // Limpiar referencia al intervalo
+                     }
+
+                      element.textContent = Math.round(currentNumber);
+
+                 }, frameDurationCounter);
+
+                  counterItem.counterIntervalId = intervalId; // Guardar referencia
+
+                 // Definir la función listener para poder quitarla luego
+                 const mouseEnterListener = () => {
+                    if (hasFinished) {
+                        // Reiniciar animación
+                         animateCounter(element, target); // Iniciar de nuevo
+                    }
+                 };
+
+                 counterItem.mouseEnterListener = mouseEnterListener; // Guardar referencia
+                 counterItem.addEventListener('mouseenter', mouseEnterListener);
+
+             };
+
+             const counterObserver = new IntersectionObserver((entries, observer) => {
+                 entries.forEach(entry => {
+                     if (entry.isIntersecting) {
+                         const counterElement = entry.target;
+                         const targetValue = parseInt(counterElement.getAttribute('data-target'), 10);
+
+                         // Evitar re-animar si ya fue visible y animado (a menos que se haga hover)
+                         // La lógica de reinicio al hover se maneja dentro de animateCounter
+                         if (!counterElement.classList.contains('animated')) {
+                              animateCounter(counterElement, targetValue);
+                              counterElement.classList.add('animated');
+                         }
+                         // No desobservar para permitir el reinicio al hover si sale y vuelve a entrar
+                         // observer.unobserve(counterElement);
+                     } else {
+                         // Opcional: ¿resetear animación si sale de vista? Podría ser molesto.
+                         // entry.target.classList.remove('animated'); // Permitir re-animación al volver a entrar
+                         // entry.target.textContent = '0'; // Reset visual
+                     }
+                 });
+             }, { threshold: 0.5 });
+
+             counterNumbers.forEach(item => {
+                if (item.getAttribute('data-target') !== null) { // Asegurarse que tenga el atributo
+                     counterObserver.observe(item);
+                 }
+             });
+
+             // --- Animación Barras de Gráfico al Entrar en Viewport ---
+             const barChart = document.getElementById('barChartExample');
+             if (barChart) {
+                 const bars = barChart.querySelectorAll('.visual-bar');
+                 const chartObserver = new IntersectionObserver((entries, observer) => {
+                     entries.forEach(entry => {
+                         if (entry.isIntersecting) {
+                             bars.forEach(bar => {
+                                 const value = bar.getAttribute('data-value');
+                                 if (value !== null) {
+                                      // Aplicar altura con un pequeño retraso para asegurar renderizado inicial
+                                     setTimeout(() => {
+                                         bar.style.height = `${value}%`;
+                                         bar.classList.add('has-height'); // Clase para animar el span del valor
+                                     }, 100);
+                                 }
+                             });
+                             observer.unobserve(entry.target); // Animar solo una vez
+                         }
+                     });
+                 }, { threshold: 0.3 });
+                 chartObserver.observe(barChart);
+             }
+
+
+             // --- Feedback Ejercicio de Reflexión (Simple) ---
+             const reflectionText = document.getElementById('reflectionText');
+             const reflectionFeedback = document.getElementById('reflectionFeedback');
+             if (reflectionText && reflectionFeedback) {
+                 reflectionText.addEventListener('input', () => {
+                     if (reflectionText.value.length > 20) {
+                         reflectionFeedback.style.display = 'block';
+                     } else {
+                         reflectionFeedback.style.display = 'none';
+                     }
+                 });
+             }
+
+             // --- Animación General al Scroll (para secciones) ---
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+             const scrollObserver = new IntersectionObserver((entries, observer) => {
+                 entries.forEach(entry => {
+                     if (entry.isIntersecting) {
+                         entry.target.classList.add('is-visible');
+                         observer.unobserve(entry.target);
+                     }
+                 });
+             }, { threshold: 0.1 });
+
+             animatedElements.forEach(el => {
+                 scrollObserver.observe(el);
+             });
+
+        }); // Fin DOMContentLoaded
+    </script>
+
+</body>
+</html>
