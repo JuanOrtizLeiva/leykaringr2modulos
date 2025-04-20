@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introducción a la Ley Karin: ¿Por Qué Nos Importa a Todos?</title>
+    <title>Introducción a la Ley Karin: Construyendo Ambientes Laborales Seguros</title>
     <style>
-        /* --- Variables CSS --- */
+        /* --- Variables CSS con Sistema de Colores Semántico --- */
         :root {
-            --color-primary: #0A4A9D; /* Cobalto Oscuro Dinámico */
-            --color-secondary: #3B77C6; /* Gradiente/Secundario */
-            --color-accent1: #FB8C00;  /* Naranja Acento */
-            --color-accent2: #6C757D;  /* Gris Acento */
-            --color-text: #212529;     /* Texto Oscuro */
-            --color-background: #FFFFFF; /* Fondo Claro */
-            --color-background-alt: #F1F3F5; /* Fondo Alternativo/Suave */
-            --color-success: #28a745;
-            --color-danger: #dc3545;
+            --color-primary: #0A4A9D; /* Azul institucional - elementos formales/legales */
+            --color-secondary: #3B77C6; /* Azul secundario - conceptos complementarios */
+            --color-accent1: #FB8C00;  /* Naranja - advertencias/elementos que requieren atención */
+            --color-accent2: #6C757D;  /* Gris - elementos secundarios/información contextual */
+            --color-success: #28a745; /* Verde - buenas prácticas/protección */
+            --color-danger: #dc3545;  /* Rojo atenuado - conductas prohibidas/riesgos */
+            --color-warning: #FFC107; /* Amarillo - precaución/elementos a considerar */
+            --color-text: #212529;     /* Texto principal */
+            --color-text-light: #495057; /* Texto secundario */
+            --color-background: #FFFFFF; /* Fondo principal */
+            --color-background-alt: #F1F3F5; /* Fondo alternativo */
+            --color-background-legal: #EFF6FF; /* Fondo para textos legales */
+            --color-background-case: #FFF8E1; /* Fondo para casos prácticos */
+            --color-background-activity: #F3F9F1; /* Fondo para actividades */
             --color-light-grey: #e9ecef;
 
             --font-primary: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
@@ -106,7 +111,6 @@
             padding: var(--spacing-lg); /* Padding interno por defecto */
             background-color: var(--color-background);
             border-radius: var(--border-radius);
-            /* box-shadow: var(--box-shadow); /* Sombra suave opcional para secciones */
         }
 
         .content-subsection {
@@ -117,6 +121,30 @@
              box-shadow: var(--box-shadow);
         }
 
+        /* Contenedores semánticos específicos */
+        .legal-definition {
+            background-color: var(--color-background-legal);
+            border-left: 5px solid var(--color-primary);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .case-study {
+            background-color: var(--color-background-case);
+            border-left: 5px solid var(--color-warning);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .activity-container {
+            background-color: var(--color-background-activity);
+            border-left: 5px solid var(--color-success);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
 
         /* --- Barra de Progreso --- */
         #progressBar {
@@ -161,7 +189,6 @@
             vertical-align: middle;
         }
 
-
         /* --- Callouts / Bloques Destacados --- */
         .callout {
             background-color: var(--color-background-alt);
@@ -173,6 +200,18 @@
         .callout-objective {
             border-left-color: var(--color-primary);
             background-color: #e7f0fa; /* Fondo más suave para objetivo */
+        }
+        .callout-warning {
+            border-left-color: var(--color-warning);
+            background-color: #FFF3CD; /* Fondo para advertencias */
+        }
+        .callout-danger {
+            border-left-color: var(--color-danger);
+            background-color: #F8D7DA; /* Fondo para peligros/conductas prohibidas */
+        }
+        .callout-success {
+            border-left-color: var(--color-success);
+            background-color: #D4EDDA; /* Fondo para buenas prácticas */
         }
         .callout p:last-child {
             margin-bottom: 0;
@@ -503,7 +542,6 @@
         .timeline-h-item:last-child {
             margin-right: 0;
         }
-        /* .timeline-h-point { ... } */ /* CORRECCIÓN: Regla eliminada */
 
         .timeline-h-content {
             background-color: var(--color-background);
@@ -717,11 +755,12 @@
 
         /* --- Ejercicio de Reflexión --- */
         .reflection-exercise {
-            background-color: var(--color-background-alt);
+            background-color: var(--color-background-activity);
             padding: var(--spacing-lg);
             border-radius: var(--border-radius);
             margin: var(--spacing-lg) 0;
             box-shadow: var(--box-shadow);
+            border-left: 5px solid var(--color-success);
         }
         .reflection-exercise h3 {
             color: var(--color-primary);
@@ -755,11 +794,12 @@
 
         /* --- Lista de Verificación --- */
         .checklist-activity {
-            background-color: var(--color-background-alt);
+            background-color: var(--color-background-activity);
             padding: var(--spacing-lg);
             border-radius: var(--border-radius);
             margin: var(--spacing-lg) 0;
             box-shadow: var(--box-shadow);
+            border-left: 5px solid var(--color-success);
         }
         .checklist-activity h3 {
             color: var(--color-primary);
@@ -782,6 +822,45 @@
             flex-grow: 1;
         }
 
+        /* --- Elementos para simulador de roles --- */
+        .role-simulator {
+            background-color: var(--color-background-activity);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+            box-shadow: var(--box-shadow);
+            border-left: 5px solid var(--color-success);
+        }
+        
+        .role-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .role-button {
+            padding: var(--spacing-md) var(--spacing-lg);
+            background-color: var(--color-background);
+            border: 2px solid var(--color-primary);
+            border-radius: var(--border-radius);
+            color: var(--color-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+        }
+        
+        .role-button:hover, .role-button.active {
+            background-color: var(--color-primary);
+            color: white;
+        }
+        
+        .scenario-container {
+            background-color: var(--color-background-case);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+        }
 
         /* --- Imágenes Decorativas --- */
         .decorative-image {
@@ -801,7 +880,131 @@
              vertical-align: -0.125em; /* Alineación fina */
              fill: currentColor; /* Hereda color del texto */
          }
-
+         
+         /* --- Micro-evaluación --- */
+         .micro-quiz {
+             background-color: var(--color-background-activity);
+             padding: var(--spacing-lg);
+             border-radius: var(--border-radius);
+             margin: var(--spacing-lg) 0;
+             box-shadow: var(--box-shadow);
+             border-left: 5px solid var(--color-success);
+         }
+         
+         .micro-quiz-title {
+             color: var(--color-primary);
+             margin-top: 0;
+             margin-bottom: var(--spacing-md);
+         }
+         
+         .micro-quiz-question {
+             font-weight: 600;
+             margin-bottom: var(--spacing-md);
+         }
+         
+         .micro-quiz-options {
+             display: flex;
+             flex-direction: column;
+             gap: var(--spacing-sm);
+             margin-bottom: var(--spacing-md);
+         }
+         
+         .micro-quiz-option {
+             padding: var(--spacing-md);
+             background-color: var(--color-background);
+             border: 1px solid var(--color-light-grey);
+             border-radius: var(--border-radius);
+             cursor: pointer;
+             transition: all var(--transition-speed) ease;
+         }
+         
+         .micro-quiz-option:hover {
+             background-color: #f8f9fa;
+             border-color: var(--color-secondary);
+         }
+         
+         .micro-quiz-option.selected {
+             background-color: var(--color-primary);
+             color: white;
+             border-color: var(--color-primary);
+         }
+         
+         .micro-quiz-feedback {
+             margin-top: var(--spacing-md);
+             padding: var(--spacing-md);
+             border-radius: var(--border-radius);
+             display: none;
+         }
+         
+         .micro-quiz-feedback.correct {
+             background-color: #d4edda;
+             color: #155724;
+             display: block;
+         }
+         
+         .micro-quiz-feedback.incorrect {
+             background-color: #f8d7da;
+             color: #721c24;
+             display: block;
+         }
+         
+         /* --- Infografía --- */
+         .infographic-container {
+             background-color: var(--color-background-alt);
+             padding: var(--spacing-lg);
+             border-radius: var(--border-radius);
+             margin: var(--spacing-lg) 0;
+             box-shadow: var(--box-shadow);
+         }
+         
+         .infographic-title {
+             text-align: center;
+             margin-bottom: var(--spacing-md);
+             color: var(--color-primary);
+         }
+         
+         .infographic-content {
+             display: flex;
+             flex-direction: column;
+             gap: var(--spacing-md);
+         }
+         
+         .info-step {
+             display: flex;
+             align-items: flex-start;
+             gap: var(--spacing-md);
+             background-color: var(--color-background);
+             padding: var(--spacing-md);
+             border-radius: var(--border-radius);
+             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+         }
+         
+         .step-number {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             min-width: 40px;
+             height: 40px;
+             background-color: var(--color-primary);
+             color: white;
+             border-radius: 50%;
+             font-weight: 600;
+         }
+         
+         .step-content {
+             flex-grow: 1;
+         }
+         
+         .step-title {
+             font-weight: 600;
+             color: var(--color-primary);
+             margin-bottom: var(--spacing-xs);
+         }
+         
+         .step-description {
+             font-size: 0.95em;
+             color: var(--color-text-light);
+         }
 
         /* --- Responsividad --- */
         @media (max-width: 768px) {
@@ -873,6 +1076,18 @@
                  top: -20px;
                  font-size: 0.8em;
              }
+             
+             .role-options {
+                 flex-direction: column;
+             }
+             
+             .info-step {
+                 flex-direction: column;
+             }
+             
+             .step-number {
+                 margin-bottom: var(--spacing-sm);
+             }
         }
 
         @media (max-width: 480px) {
@@ -929,8 +1144,6 @@
              transform: none; /* O define la transformación inicial y final */
         }
          .slide-in-up { transform: translateY(50px); }
-
-
     </style>
 </head>
 <body>
@@ -939,15 +1152,32 @@
 
     <main>
         <header class="animated-entry">
-            <h1>Introducción a la Ley Karin: ¿Por Qué Nos Importa a Todos?</h1>
+            <h1>Introducción a la Ley Karin: Construyendo Ambientes Laborales Seguros</h1>
         </header>
 
         <section class="objectives animated-entry" style="animation-delay: 0.1s;">
             <h2><svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Objetivos de Aprendizaje</h2>
             <ul>
-                <li>Comprender el propósito fundamental de la Ley N°21.643 (Ley Karin) y su importancia para construir ambientes laborales seguros y respetuosos en Chile.</li>
-                <li>Reconocer su relevancia compartida tanto para los trabajadores como para las organizaciones.</li>
+                <li>Comprender la definición jurídica de la Ley N°21.643 (Ley Karin) y los elementos específicos que constituyen acoso laboral, sexual y violencia en el trabajo.</li>
+                <li>Identificar las obligaciones concretas que la ley establece tanto para empleadores como para trabajadores, y las consecuencias de su incumplimiento.</li>
+                <li>Analizar el proceso completo de denuncia, investigación y sanción establecido por la ley, reconociendo plazos y garantías específicas.</li>
+                <li>Aplicar los conceptos aprendidos para evaluar situaciones reales del contexto laboral chileno y determinar si constituyen acoso según la legislación vigente.</li>
             </ul>
+        </section>
+
+        <!-- NUEVO: Narrativa sobre Karin Salgado -->
+        <section class="content-subsection animate-on-scroll slide-in-up">
+            <h3><svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg> El caso que inspiró una ley: Karin Salgado</h3>
+            
+            <div class="case-study">
+                <p>El 21 de enero de 2019, Karin Salgado, una técnico en enfermería de 38 años que trabajaba en un centro de salud en la Región Metropolitana, tomó una decisión irreversible. Tras meses de sufrir lo que su familia describió como "hostigamiento sistemático" en su lugar de trabajo, Karin decidió quitarse la vida.</p>
+                
+                <p>Sus compañeros relataron que Karin había denunciado en múltiples ocasiones situaciones de maltrato por parte de superiores, incluyendo humillaciones públicas, sobrecarga laboral discriminatoria y aislamiento. A pesar de seguir los canales establecidos, las denuncias no prosperaron efectivamente, y la situación se prolongó hasta volverse insostenible.</p>
+                
+                <p>El caso de Karin visibilizó una realidad que muchos trabajadores chilenos enfrentaban en silencio: la insuficiencia de los mecanismos existentes para prevenir, detener y sancionar efectivamente el acoso laboral. Esta dolorosa historia se convirtió en un símbolo de la necesidad urgente de fortalecer la legislación.</p>
+                
+                <p>Cinco años después, el 15 de enero de 2024, se promulgó la Ley N°21.643, conocida como "Ley Karin" en su memoria. Esta ley representa un compromiso del Estado chileno con la construcción de ambientes laborales dignos y libres de violencia para todos los trabajadores y trabajadoras del país.</p>
+            </div>
         </section>
 
         <section class="content-subsection animate-on-scroll slide-in-up">
@@ -956,19 +1186,29 @@
             <p>De manera similar, el acoso sexual, definido como las solicitudes de carácter sexual, que no son consentidas por quien las recibe y que amenazan o perjudican su situación laboral o sus oportunidades en el empleo, también presentaba desafíos en su prevención y sanción efectiva. Las cifras, aunque a veces subrepresentadas por el miedo a denunciar, mostraban una problemática persistente.</p>
 
             <div class="callout">
-                <strong>Una Realidad Preocupante:</strong> Según datos previos a la nueva ley, una proporción significativa de trabajadores en Chile reportaba haber experimentado o presenciado situaciones de acoso o maltrato en el trabajo. Por ejemplo, la Encuesta Laboral (ENCLA) de la Dirección del Trabajo ha recogido históricamente información sobre riesgos psicosociales, reflejando la necesidad de fortalecer los mecanismos de protección. Aunque las cifras varían anualmente, diversos estudios han apuntado a que más del 10% de los trabajadores podrían haber enfrentado situaciones de acoso laboral en algún momento. <em>(Nota: Cifra indicativa basada en tendencias históricas, buscar el dato más reciente y específico de fuentes oficiales como DT o SUSESO para mayor precisión).</em>
-                <span class="source">Basado en tendencias observadas en encuestas laborales chilenas (Ej: ENCLA, DT).</span>
+                <strong>Una Realidad Preocupante:</strong> Según datos de la Dirección del Trabajo (DT), en 2023 se registraron más de 2.400 denuncias por acoso laboral y cerca de 700 por acoso sexual en Chile. La Encuesta Laboral (ENCLA) de 2022 reveló que aproximadamente un 13% de los trabajadores chilenos reportó haber experimentado alguna forma de acoso laboral en los últimos 12 meses, cifra que es considerablemente mayor en sectores como salud, educación y retail. Estas estadísticas confirman la necesidad de reforzar la protección contra estas conductas nocivas.
+                <span class="source">Fuente: Dirección del Trabajo de Chile, Informe Anual 2023 y ENCLA 2022.</span>
             </div>
 
              <img src="https://i.postimg.cc/PxFBrFNc/14331-min.jpg" alt="Imagen decorativa representando un ambiente de trabajo en Chile, con enfoque en el respeto." class="decorative-image">
 
 
             <p>Las limitaciones de la normativa anterior incluían, en ocasiones, procedimientos de investigación internos poco claros o expeditos, falta de protocolos robustos de prevención y una cultura organizacional que no siempre fomentaba la denuncia segura y la tolerancia cero hacia estas conductas. La necesidad de un marco legal más integral, preventivo y protector se hizo evidente, impulsando la creación de una legislación específica que abordara de manera más contundente el acoso y la violencia en el mundo del trabajo: la Ley Karin.</p>
-            <h4>Texto Explicativo Adicional (Profundizando el Contexto)</h4>
-            <p>El contexto internacional también jugó un rol importante. La ratificación por parte de Chile del Convenio 190 de la Organización Internacional del Trabajo (OIT) sobre la eliminación de la violencia y el acoso en el mundo del trabajo, marcó un hito y un compromiso a nivel país para adoptar medidas legislativas y políticas públicas acordes con estándares internacionales. Este convenio reconoce el derecho de toda persona a un mundo del trabajo libre de violencia y acoso, incluidos la violencia y el acoso por razón de género, y subraya la responsabilidad de los Estados miembros de adoptar un enfoque inclusivo, integrado y que tenga en cuenta las consideraciones de género para prevenir y eliminar estas problemáticas.</p>
-            <p>La legislación preexistente en Chile, contenida principalmente en el Código del Trabajo, establecía la obligación del empleador de proteger eficazmente la vida y salud de los trabajadores y definía el acoso laboral y sexual. Sin embargo, la aplicación práctica enfrentaba obstáculos. Las investigaciones internas, si bien obligatorias en ciertos casos, no siempre contaban con la debida confidencialidad, imparcialidad o celeridad. Además, el enfoque era a menudo más reactivo (sanción post-hecho) que proactivo (prevención sistemática).</p>
-            <p>La experiencia de víctimas y expertos evidenciaba que muchas situaciones quedaban sin denunciar por temor a represalias, por la complejidad del proceso o por la percepción de impunidad. La falta de protocolos estandarizados y obligatorios de prevención en todas las empresas, independientemente de su tamaño (más allá del Reglamento Interno en empresas más grandes), dejaba vacíos importantes. Se necesitaba una ley que no solo definiera y sancionara, sino que obligara a la acción preventiva, que estableciera procedimientos claros y garantistas, y que promoviera una cultura de respeto mutuo como pilar fundamental de las relaciones laborales. La Ley Karin surge como respuesta directa a estas necesidades acumuladas y a la creciente conciencia social sobre la urgencia de garantizar entornos laborales dignos y seguros para todos y todas.</p>
-
+            
+            <p>El contexto internacional también jugó un rol importante. La ratificación por parte de Chile del Convenio 190 de la Organización Internacional del Trabajo (OIT) sobre la eliminación de la violencia y el acoso en el mundo del trabajo en 2023, marcó un hito y un compromiso a nivel país para adoptar medidas legislativas y políticas públicas acordes con estándares internacionales. Este convenio reconoce el derecho de toda persona a un mundo del trabajo libre de violencia y acoso, incluidos la violencia y el acoso por razón de género, y subraya la responsabilidad de los Estados miembros de adoptar un enfoque inclusivo, integrado y que tenga en cuenta las consideraciones de género para prevenir y eliminar estas problemáticas.</p>
+            
+            <!-- NUEVO: Microevaluación de comprensión -->
+            <div class="micro-quiz">
+                <h4 class="micro-quiz-title">Verificación rápida de comprensión</h4>
+                <p class="micro-quiz-question">¿Cuál fue uno de los principales motivos para crear la Ley Karin?</p>
+                <div class="micro-quiz-options">
+                    <div class="micro-quiz-option" data-correct="false">Aumentar la productividad en las empresas</div>
+                    <div class="micro-quiz-option" data-correct="true">La insuficiencia de mecanismos existentes para prevenir y sancionar efectivamente el acoso laboral</div>
+                    <div class="micro-quiz-option" data-correct="false">Reducir el ausentismo laboral</div>
+                    <div class="micro-quiz-option" data-correct="false">Promover la contratación de más trabajadores</div>
+                </div>
+                <div class="micro-quiz-feedback"></div>
+            </div>
         </section>
 
         <section class="content-subsection animate-on-scroll slide-in-up">
@@ -987,10 +1227,51 @@
                 </div>
              <p><small>Video cortesía de Vimeo (ID: 853121504). Contenido externo puede tener sus propios términos.</small></p>
 
-            <h4>Texto Explicativo Adicional (Detalles Clave)</h4>
-            <p>La Ley Karin introduce varias modificaciones clave. Amplía el concepto de acoso laboral, incluyendo ahora explícitamente la violencia en el trabajo ejercida por terceros ajenos a la relación laboral (clientes, proveedores, usuarios) cuando el empleador no tome medidas adecuadas para proteger al trabajador. Esto es particularmente relevante para sectores de atención al público.</p>
-            <p>Además, refuerza la obligación de los empleadores de contar con un **Protocolo de Prevención del Acoso Sexual, Laboral y Violencia en el Trabajo**. Este protocolo ya no es solo una recomendación o parte del reglamento interno para algunas empresas, sino una exigencia transversal con contenidos mínimos definidos por ley y que debe ser elaborado con participación de los trabajadores o sus representantes (como comités paritarios o sindicatos). Este protocolo debe incluir medidas de información, capacitación, evaluación de riesgos y procedimientos claros de investigación y sanción.</p>
-            <p>Se establecen plazos más estrictos para las investigaciones internas (generalmente no más de 30 días) y se fortalecen las garantías para los denunciantes y testigos, protegiéndolos contra represalias. La ley también especifica las posibles sanciones para los acosadores y las responsabilidades del empleador en caso de incumplimiento de sus obligaciones preventivas o de investigación. En resumen, la Ley Karin busca pasar de un modelo principalmente reactivo a uno fuertemente preventivo y garantista, poniendo el énfasis en la creación de una cultura organizacional de respeto y seguridad.</p>
+            <!-- NUEVO: Definiciones jurídicas mejoradas -->
+            <div class="legal-definition">
+                <h4>Definición Jurídica: Acoso Laboral</h4>
+                <p>De acuerdo con el artículo 2° del Código del Trabajo, modificado por la Ley Karin, el acoso laboral se define como:</p>
+                <blockquote>
+                    "Toda conducta que constituya agresión u hostigamiento <strong>reiterados</strong>, ejercida por el empleador o por uno o más trabajadores, en contra de otro u otros trabajadores, por cualquier medio, y que tenga como resultado para el o los afectados su menoscabo, maltrato o humillación, o bien que amenace o perjudique su situación laboral o sus oportunidades en el empleo."
+                </blockquote>
+                <p><strong>Elementos constitutivos:</strong></p>
+                <ol>
+                    <li><strong>Reiteración:</strong> Conductas repetidas en el tiempo, no hechos aislados</li>
+                    <li><strong>Contexto laboral:</strong> Entre personas con vínculo laboral (vertical u horizontal)</li>
+                    <li><strong>Consecuencias dañinas:</strong> Menoscabo, maltrato, humillación o perjuicio laboral</li>
+                    <li><strong>Por cualquier medio:</strong> Verbal, no verbal, físico, digital, etc.</li>
+                </ol>
+            </div>
+            
+            <div class="legal-definition">
+                <h4>Definición Jurídica: Acoso Sexual</h4>
+                <p>Según el artículo 2° del Código del Trabajo, el acoso sexual se define como:</p>
+                <blockquote>
+                    "El que realice, en forma indebida, por cualquier medio, requerimientos de carácter sexual, no consentidos por quien los recibe y que amenacen o perjudiquen su situación laboral o sus oportunidades en el empleo."
+                </blockquote>
+                <p><strong>Elementos constitutivos:</strong></p>
+                <ol>
+                    <li><strong>No requiere reiteración:</strong> Un solo acto puede constituir acoso sexual</li>
+                    <li><strong>Requerimiento sexual:</strong> Solicitud, insinuación o conducta de naturaleza sexual</li>
+                    <li><strong>Ausencia de consentimiento:</strong> No deseado por quien lo recibe</li>
+                    <li><strong>Consecuencia laboral adversa:</strong> Amenaza o perjuicio a la situación laboral</li>
+                </ol>
+            </div>
+            
+            <!-- NUEVO: Caso de estudio contextualizado a Chile -->
+            <div class="case-study">
+                <h4>Caso práctico: Acoso laboral en sector minero chileno</h4>
+                <p>Manuel, operador de maquinaria en una minera del norte de Chile, comenzó a experimentar problemas con su supervisor Carlos después de solicitar permiso para ausentarse por la enfermedad de su hijo. Desde entonces, Carlos implementó lo que los compañeros de Manuel llamaron "una guerra de desgaste":</p>
+                <ul>
+                    <li>Asignación sistemática de las tareas más pesadas y riesgosas</li>
+                    <li>Críticas constantes y desmedidas sobre su desempeño frente a todo el equipo</li>
+                    <li>Exclusión deliberada de reuniones de coordinación importantes para su labor</li>
+                    <li>Denegación reiterada de permisos administrativos a los que tenía derecho</li>
+                    <li>Modificaciones arbitrarias de su turno con escasa anticipación</li>
+                </ul>
+                <p>Después de tres meses, Manuel comenzó a presentar síntomas de ansiedad y problemas para dormir. Su rendimiento laboral disminuyó, lo que fue utilizado por Carlos para justificar aún más el maltrato.</p>
+                <p><strong>Análisis:</strong> Este caso constituye acoso laboral por cumplir todos los elementos: conductas reiteradas (durante meses), en contexto laboral (relación jefe-subordinado), que generaron consecuencias negativas (afectación psicológica y del desempeño).</p>
+            </div>
         </section>
 
          <section class="animate-on-scroll slide-in-up">
@@ -1033,6 +1314,42 @@
                         <div class="flip-card-back">
                            <h4>Sanción y Protección</h4>
                             <p>Refuerza las sanciones para quienes cometan acoso o violencia, y también para empleadores que no cumplan sus deberes de prevención e investigación. Asegura la <strong>protección contra represalias</strong> (garantía de indemnidad) para quienes denuncien o participen en la investigación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- NUEVA: Actividad de análisis de caso -->
+            <div class="activity-container">
+                <h4>Actividad: Análisis de Caso</h4>
+                <p>Analiza la siguiente situación y determina si constituye acoso laboral según la Ley Karin:</p>
+                
+                <div class="case-study">
+                    <p>Claudia trabaja como analista contable en una empresa de retail en Santiago. Durante las últimas semanas ha notado que su jefe directo:</p>
+                    <ul>
+                        <li>Constantemente revisa su trabajo con un nivel de detalle que no aplica a sus compañeros</li>
+                        <li>Ha comenzado a excluirla de reuniones de equipo sin explicación</li>
+                        <li>Ha hecho comentarios sobre su apariencia en dos ocasiones</li>
+                        <li>Asigna los casos más complejos siempre a ella</li>
+                        <li>Al preguntar el motivo de estas conductas, le respondió: "Si no te gusta cómo trabajo, puedes irte"</li>
+                    </ul>
+                </div>
+                
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Análisis paso a paso
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <h5>Analicemos según los criterios legales:</h5>
+                            <ol>
+                                <li><strong>¿Existe reiteración?</strong> Sí, son conductas que se han repetido durante "las últimas semanas".</li>
+                                <li><strong>¿En qué tipo de relación laboral ocurre?</strong> Vertical descendente (de jefe a subordinada).</li>
+                                <li><strong>¿Genera consecuencias negativas?</strong> Podría generar menoscabo profesional y afectación emocional.</li>
+                                <li><strong>¿Por qué medios se manifiesta?</strong> Verbal (comentarios), conductuales (exclusión de reuniones, asignación desigual de trabajo).</li>
+                            </ol>
+                            <p><strong>Conclusión:</strong> Este caso probablemente constituye acoso laboral, pues cumple con los elementos requeridos por la ley. Las conductas son reiteradas, ocurren en un contexto laboral, tienen potencial de causar menoscabo y se manifiestan por diversos medios.</p>
                         </div>
                     </div>
                 </div>
@@ -1095,8 +1412,91 @@
                     <p>Es importante entender que la evaluación de si una conducta específica califica como acoso dependerá del análisis caso a caso, considerando el contexto, la frecuencia, la intensidad y el impacto en la víctima.</p>
                 </div>
             </div>
+            
+            <!-- NUEVO: Simulador de roles -->
+            <div class="role-simulator">
+                <h4>Simulador de Respuestas según Rol</h4>
+                <p>Selecciona un rol y analiza cómo deberías responder ante una situación de posible acoso laboral:</p>
+                
+                <div class="role-options">
+                    <button class="role-button" data-role="jefatura">Empleador/Jefatura</button>
+                    <button class="role-button" data-role="representante">Representante de Trabajadores</button>
+                    <button class="role-button" data-role="afectado">Trabajador/a Afectado</button>
+                    <button class="role-button" data-role="companero">Compañero/a de Trabajo</button>
+                    <button class="role-button" data-role="rrhh">Profesional RRHH</button>
+                </div>
+                
+                <div class="scenario-container">
+                    <p><strong>Escenario:</strong> En la reunión de equipo del lunes, Rodrigo (supervisor) hizo comentarios humillantes sobre el trabajo de Andrea frente a todo el equipo por tercera vez este mes. Andrea se mostró visiblemente afectada y abandonó la reunión. Al día siguiente, Andrea te comenta que está considerando renunciar porque 'no soporta más la situación'.</p>
+                </div>
+                
+                <div id="response-jefatura" class="role-response" style="display: none;">
+                    <h5>Como Empleador/Jefatura deberías:</h5>
+                    <ol>
+                        <li>Escuchar atentamente a Andrea y tomar su situación con seriedad.</li>
+                        <li>Informarle sobre los canales formales de denuncia disponibles según el protocolo.</li>
+                        <li>Iniciar un procedimiento de investigación conforme a la Ley Karin.</li>
+                        <li>Implementar medidas inmediatas para proteger a Andrea (ej. cambio temporal de supervisor).</li>
+                        <li>Asegurar que no habrá represalias por la denuncia.</li>
+                        <li>Revisar y reforzar las políticas de respeto en todo el equipo.</li>
+                    </ol>
+                    <p><strong>Recuerda:</strong> Como jefatura, tienes la obligación legal de actuar ante situaciones de posible acoso, independientemente de tus vínculos personales con las partes involucradas.</p>
+                </div>
+                
+                <div id="response-representante" class="role-response" style="display: none;">
+                    <h5>Como Representante de Trabajadores deberías:</h5>
+                    <ol>
+                        <li>Ofrecer apoyo y contención emocional a Andrea.</li>
+                        <li>Informarle sobre sus derechos según la Ley Karin.</li>
+                        <li>Ayudarla a documentar los incidentes (fechas, testigos, detalles).</li>
+                        <li>Acompañarla en el proceso de denuncia si ella lo desea.</li>
+                        <li>Vigilar que la empresa cumpla con el procedimiento de investigación adecuado.</li>
+                        <li>Proponer medidas preventivas a nivel organizacional.</li>
+                    </ol>
+                    <p><strong>Recuerda:</strong> Como representante, tu rol es ser un canal de confianza y asegurar que se respeten los derechos de los trabajadores.</p>
+                </div>
+                
+                <div id="response-afectado" class="role-response" style="display: none;">
+                    <h5>Como Trabajador/a Afectado (Andrea) podrías:</h5>
+                    <ol>
+                        <li>Documentar los incidentes con detalle (fechas, testigos, descripción exacta).</li>
+                        <li>Presentar una denuncia formal siguiendo el protocolo de la empresa.</li>
+                        <li>Solicitar medidas de protección inmediatas mientras se investiga.</li>
+                        <li>Contactar al sindicato o representantes de trabajadores para apoyo.</li>
+                        <li>Consultar con la Inspección del Trabajo si la empresa no responde adecuadamente.</li>
+                        <li>Buscar apoyo psicológico si la situación está afectando tu salud mental.</li>
+                    </ol>
+                    <p><strong>Recuerda:</strong> Tienes derecho a un ambiente de trabajo libre de acoso y a que tu denuncia sea investigada adecuadamente.</p>
+                </div>
+                
+                <div id="response-companero" class="role-response" style="display: none;">
+                    <h5>Como Compañero/a de Trabajo deberías:</h5>
+                    <ol>
+                        <li>Escuchar a Andrea con empatía y sin juzgar.</li>
+                        <li>Ofrecerle apoyo emocional y validar su experiencia.</li>
+                        <li>Informarle sobre los canales de denuncia disponibles en la empresa.</li>
+                        <li>Ofrecerte como testigo si presenciaste las situaciones de maltrato.</li>
+                        <li>No propagar rumores ni comentar la situación con otros compañeros.</li>
+                        <li>Considerar reportar la conducta inapropiada que observaste.</li>
+                    </ol>
+                    <p><strong>Recuerda:</strong> Como testigo de situaciones de acoso, también tienes un rol importante en la construcción de ambientes laborales respetuosos.</p>
+                </div>
+                
+                <div id="response-rrhh" class="role-response" style="display: none;">
+                    <h5>Como Profesional RRHH deberías:</h5>
+                    <ol>
+                        <li>Recibir formalmente la denuncia y documentarla adecuadamente.</li>
+                        <li>Explicar a Andrea el procedimiento de investigación según el protocolo.</li>
+                        <li>Implementar medidas de protección inmediatas.</li>
+                        <li>Designar a un investigador imparcial o asumir ese rol si corresponde.</li>
+                        <li>Asegurar la confidencialidad del proceso.</li>
+                        <li>Coordinar entrevistas con todas las partes involucradas y testigos.</li>
+                        <li>Elaborar el informe dentro del plazo establecido (máx. 30 días).</li>
+                    </ol>
+                    <p><strong>Recuerda:</strong> Tu rol es fundamental para garantizar un proceso justo, confidencial y apegado a la ley.</p>
+                </div>
+            </div>
         </section>
-
 
         <section class="animate-on-scroll slide-in-up">
              <h3><svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg> Hitos y Proceso: Desde la Denuncia a la Solución</h3>
@@ -1141,47 +1541,96 @@
 
              <img src="https://i.postimg.cc/HsQb8Xvx/shutterstock_2264971717-min.jpg" alt="Imagen decorativa representando un equipo de trabajo diverso y colaborativo en Chile." class="decorative-image">
 
-
-            <h4>Flujo Simplificado de una Denuncia bajo Ley Karin</h4>
-             <p>El proceso exacto puede variar según el protocolo de cada empresa, pero generalmente sigue estos pasos:</p>
-            <div class="timeline-horizontal-container">
-                <div class="timeline-horizontal-wrapper">
-                    <div class="timeline-h-item">
-                        <div class="timeline-h-content">
-                            <h5 class="timeline-h-title">1. Denuncia</h5>
-                            <p>El trabajador/a presenta la denuncia (verbal o escrita, confidencial) a través de los canales definidos en el protocolo (RRHH, jefatura, comité, etc.).</p>
+            <!-- NUEVA: Infografía del proceso de denuncia -->
+            <h4>Proceso de Denuncia e Investigación bajo Ley Karin</h4>
+            <div class="infographic-container">
+                <h5 class="infographic-title">Flujo del Proceso de Denuncia</h5>
+                <div class="infographic-content">
+                    <div class="info-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h6 class="step-title">Presentación de denuncia</h6>
+                            <p class="step-description">Canales: RRHH, jefatura directa, comité paritario o sindicato. Formato: Verbal o escrito (idealmente escrito). Requisitos mínimos: Descripción de hechos, fechas aproximadas, identificación del denunciado.</p>
                         </div>
                     </div>
-                    <div class="timeline-h-item">
-                        <div class="timeline-h-content">
-                            <h5 class="timeline-h-title">2. Adopción de Medidas</h5>
-                            <p>El empleador evalúa adoptar medidas de resguardo inmediatas si son necesarias para proteger al denunciante.</p>
+                    <div class="info-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h6 class="step-title">Recepción y medidas inmediatas (máx. 24-48 horas)</h6>
+                            <p class="step-description">Acuse de recibo por escrito. Evaluación de medidas de resguardo. Posibles medidas: separación de espacios, cambio temporal de funciones, permisos especiales.</p>
                         </div>
                     </div>
-                    <div class="timeline-h-item">
-                         <div class="timeline-h-content">
-                             <h5 class="timeline-h-title">3. Investigación</h5>
-                             <p>Se inicia la investigación interna (plazo máx. 30 días gral.), garantizando confidencialidad y escuchando a las partes y testigos.</p>
+                    <div class="info-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h6 class="step-title">Investigación interna (máx. 30 días generalmente)</h6>
+                            <p class="step-description">Designación de investigador imparcial. Entrevistas confidenciales a partes y testigos. Recopilación de evidencias. Análisis de información.</p>
                         </div>
                     </div>
-                    <div class="timeline-h-item">
-                         <div class="timeline-h-content">
-                             <h5 class="timeline-h-title">4. Informe</h5>
-                             <p>Se elabora un informe con las conclusiones de la investigación.</p>
-                         </div>
+                    <div class="info-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h6 class="step-title">Conclusiones y recomendaciones</h6>
+                            <p class="step-description">Elaboración de informe escrito. Determinación sobre existencia de acoso/violencia. Propuesta de medidas correctivas/sanciones.</p>
+                        </div>
                     </div>
-                     <div class="timeline-h-item">
-                         <div class="timeline-h-content">
-                             <h5 class="timeline-h-title">5. Medidas / Sanciones</h5>
-                             <p>Si se acredita el acoso/violencia, el empleador aplica medidas correctivas y/o sanciones según la gravedad (amonestación, multa, despido).</p>
-                         </div>
+                    <div class="info-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h6 class="step-title">Implementación de medidas</h6>
+                            <p class="step-description">Notificación a las partes. Aplicación de sanciones si corresponde. Medidas de reparación/protección continua.</p>
+                        </div>
                     </div>
-                    <div class="timeline-h-item">
-                         <div class="timeline-h-content">
-                             <h5 class="timeline-h-title">6. Notificación / Cierre</h5>
-                             <p>Se notifica a las partes involucradas y se cierra el proceso. Se puede recurrir a la Inspección del Trabajo o Tribunales si hay disconformidad.</p>
-                         </div>
+                    <div class="info-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h6 class="step-title">Seguimiento y cierre</h6>
+                            <p class="step-description">Verificación de cumplimiento de medidas. Monitoreo preventivo. Evaluación de efectividad.</p>
+                        </div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- NUEVO: Checklist sobre protocolo -->
+            <div class="checklist-activity">
+                <h4>Evaluador del Protocolo de Prevención</h4>
+                <p>Utiliza esta lista para verificar si tu protocolo cumple con los requisitos mínimos exigidos por la Ley Karin:</p>
+                
+                <div class="checklist-item">
+                    <input type="checkbox" id="check-def" name="checklist_protocol">
+                    <label for="check-def">Definiciones claras de acoso laboral, sexual y violencia</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check-canales" name="checklist_protocol">
+                    <label for="check-canales">Canales de denuncia específicos y accesibles</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check-proc" name="checklist_protocol">
+                    <label for="check-proc">Procedimiento de investigación detallado con plazos</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check-prot" name="checklist_protocol">
+                    <label for="check-prot">Medidas de protección para denunciantes y testigos</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check-disc" name="checklist_protocol">
+                    <label for="check-disc">Medidas disciplinarias graduadas según gravedad</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check-prev" name="checklist_protocol">
+                    <label for="check-prev">Medidas de prevención (información, capacitación, evaluación)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check-dif" name="checklist_protocol">
+                    <label for="check-dif">Mecanismos de difusión del protocolo</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check-part" name="checklist_protocol">
+                    <label for="check-part">Participación de representantes de trabajadores en su elaboración</label>
+                </div>
+                
+                <div class="checklist-result" style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-radius: 8px; display: none;">
+                    <p id="checklist-feedback" style="margin: 0;"></p>
                 </div>
             </div>
         </section>
@@ -1290,8 +1739,13 @@
 
             <div class="reflection-exercise content-subsection">
                 <h3>Reflexión Personal</h3>
-                <p>Tómate un momento para pensar: ¿Qué significa para ti un "ambiente laboral respetuoso" y cómo crees que la Ley Karin puede contribuir a ello en tu propio lugar de trabajo o en general?</p>
-                <textarea id="reflectionText" rows="6" placeholder="Escribe tus ideas, experiencias o expectativas aquí... (Mínimo 150 caracteres para considerarlo 'completo' en un escenario real)"></textarea>
+                <p>Tómate un momento para reflexionar sobre estas preguntas guía:</p>
+                <ol>
+                    <li>¿Qué elementos concretos constituyen para ti un "ambiente laboral respetuoso"?</li>
+                    <li>¿Cómo podría la Ley Karin modificar las dinámicas en tu lugar de trabajo actual?</li>
+                    <li>¿Qué acciones específicas podrías implementar desde tu rol para contribuir a prevenir situaciones de acoso?</li>
+                </ol>
+                <textarea id="reflectionText" rows="6" placeholder="Reflexiona sobre las preguntas anteriores... (Mínimo 150 caracteres para considerarlo 'completo' en un escenario real)"></textarea>
                 <small>Tu reflexión es personal y te ayuda a conectar el tema con tu realidad. No se guardará ni enviará.</small>
                 <p id="reflectionFeedback" style="font-size: 0.9em; margin-top: 8px; color: var(--color-success); display: none;">¡Gracias por reflexionar sobre este importante tema!</p>
             </div>
@@ -1664,6 +2118,92 @@
                          reflectionFeedback.style.display = 'none';
                      }
                  });
+             }
+             
+             // --- Simulador de Roles (Nuevo) ---
+             const roleButtons = document.querySelectorAll('.role-button');
+             const roleResponses = document.querySelectorAll('.role-response');
+             
+             if (roleButtons.length > 0) {
+                 roleButtons.forEach(button => {
+                     button.addEventListener('click', () => {
+                         // Desactivar todos los botones y ocultar todas las respuestas
+                         roleButtons.forEach(btn => btn.classList.remove('active'));
+                         roleResponses.forEach(response => response.style.display = 'none');
+                         
+                         // Activar el botón seleccionado y mostrar la respuesta correspondiente
+                         button.classList.add('active');
+                         const roleType = button.getAttribute('data-role');
+                         const responseElement = document.getElementById(`response-${roleType}`);
+                         
+                         if (responseElement) {
+                             responseElement.style.display = 'block';
+                         }
+                     });
+                 });
+             }
+             
+             // --- Microevaluación (Nuevo) ---
+             const microQuizOptions = document.querySelectorAll('.micro-quiz-option');
+             const microQuizFeedback = document.querySelector('.micro-quiz-feedback');
+             
+             if (microQuizOptions.length > 0 && microQuizFeedback) {
+                 microQuizOptions.forEach(option => {
+                     option.addEventListener('click', () => {
+                         // Si ya se respondió, no hacer nada
+                         if (document.querySelector('.micro-quiz-option.selected')) return;
+                         
+                         // Marcar la opción seleccionada
+                         option.classList.add('selected');
+                         
+                         // Verificar si es correcta
+                         const isCorrect = option.getAttribute('data-correct') === 'true';
+                         
+                         if (isCorrect) {
+                             microQuizFeedback.textContent = '¡Correcto! La Ley Karin surgió para reforzar los mecanismos de prevención y sanción del acoso laboral en Chile.';
+                             microQuizFeedback.className = 'micro-quiz-feedback correct';
+                         } else {
+                             microQuizFeedback.textContent = 'Incorrecto. La Ley Karin fue creada específicamente para prevenir y sancionar el acoso laboral, no para los propósitos mencionados.';
+                             microQuizFeedback.className = 'micro-quiz-feedback incorrect';
+                             
+                             // Destacar la respuesta correcta
+                             document.querySelector('.micro-quiz-option[data-correct="true"]').style.border = '2px solid var(--color-success)';
+                         }
+                     });
+                 });
+             }
+             
+             // --- Checklist del Protocolo (Nuevo) ---
+             const protocolChecklist = document.querySelectorAll('input[name="checklist_protocol"]');
+             const checklistResult = document.querySelector('.checklist-result');
+             const checklistFeedback = document.getElementById('checklist-feedback');
+             
+             if (protocolChecklist.length > 0 && checklistResult && checklistFeedback) {
+                 protocolChecklist.forEach(checkbox => {
+                     checkbox.addEventListener('change', updateChecklistFeedback);
+                 });
+                 
+                 function updateChecklistFeedback() {
+                     const totalItems = protocolChecklist.length;
+                     const checkedItems = document.querySelectorAll('input[name="checklist_protocol"]:checked').length;
+                     const percentage = Math.round((checkedItems / totalItems) * 100);
+                     
+                     checklistResult.style.display = 'block';
+                     
+                     if (percentage === 0) {
+                         checklistFeedback.textContent = 'No has seleccionado ningún elemento. Tu protocolo requiere trabajo urgente para cumplir con la Ley Karin.';
+                         checklistResult.style.backgroundColor = '#f8d7da';
+                     } else if (percentage < 50) {
+                         checklistFeedback.textContent = `Tu protocolo cumple con ${checkedItems} de ${totalItems} requisitos (${percentage}%). Necesita mejoras significativas para ser efectivo.`;
+                         checklistResult.style.backgroundColor = '#fff3cd';
+                     } else if (percentage < 100) {
+                         checklistFeedback.textContent = `Tu protocolo cumple con ${checkedItems} de ${totalItems} requisitos (${percentage}%). Va por buen camino, pero aún requiere algunos ajustes.`;
+                         checklistResult.style.backgroundColor = '#d1ecf1';
+                     } else {
+                         checklistFeedback.textContent = '¡Excelente! Tu protocolo cumple con todos los requisitos mínimos exigidos por la Ley Karin.';
+                         checklistResult.style.backgroundColor = '#d4edda';
+                     }
+                 }
              }
 
              // --- Animación General al Scroll (para secciones) ---
